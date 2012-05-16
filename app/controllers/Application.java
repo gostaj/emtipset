@@ -1,13 +1,8 @@
 package controllers;
 
-import controllers.securesocial.SecureSocial;
-import play.mvc.*;
+import play.mvc.Controller;
 
-import java.util.*;
-
-import models.*;
-
-@With( SecureSocial.class )
+//@With( SecureSocial.class )
 public class Application extends Controller {
 
     public static void index() {
