@@ -5,10 +5,15 @@
 !.gitignore
 
 # Ignore Play! working directory #
+bin
+data
 db
+dist
 eclipse
+lib
 log
 logs
+modules
 precompiled
 tmp
 test-result
