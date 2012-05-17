@@ -4,8 +4,11 @@
 <head>
     <title>#{get 'title' /}</title>
     <meta charset="${_response_encoding}">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap-1.3.0/bootstrap.min.css'}">
-    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
     #{get 'moreStyles' /}
     <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
@@ -25,6 +28,7 @@
     #{get 'moreScripts' /}
 </head>
 <body>
+
 <div class="topbar">
     <div class="fill">
         <div class="container">
