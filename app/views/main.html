@@ -29,11 +29,26 @@
 </head>
 <body>
 
+#{if flash.error}
+<div class="alert-message block-message error">
+    <div class="alert-actions">
+        ${flash.error}
+    </div>
+</div>
+#{/if}
+
 <div class="topbar">
     <div class="fill">
         <div class="container">
             <h3><a href="#">Brothas EM-tips 2012</a></h3>
-
+            <div style="text-align:right;color:white" class="clearfix">
+                #{if user}
+                    Inloggad som: <img src="${user.avatarUrl}" width="40px" height="40px"/> ${user.displayName}
+                #{/if}
+                #{else}
+                    Du är inte inloggad!
+                #{/else}
+            </div>
         </div>
     </div>
 </div>
