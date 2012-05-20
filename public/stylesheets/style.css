@@ -119,16 +119,20 @@ header[role="banner"] a {
 p#logo {
     padding: 3%;
     float: left;
-    color: #000;
+    color: #fff;
     font-weight: 800;
-    font-size: 50px;
+    font-size: 96px;
     font-variant: small-caps;
-    text-shadow: -5px -5px rgba(0,0,255,0.5), -10px -10px rgba(255,0,0,0.5),
-          -15px -15px rgba(255,255,0,0.5);
+    font-family: "YanoneKaffeesatzBold";
+    text-rendering: optimizeLegibility;
+    text-shadow: 1px 1px rgba(0,0,0,1), 1px -1px rgba(0,0,0,1), -7px 7px rgba(0,0,0,1), -1px -1px rgba(0,0,0,1);
+    /*text-shadow: -5px -5px rgba(0,0,255,0.5), -10px -10px rgba(255,0,0,0.5),
+          -15px -15px rgba(255,255,0,0.5);*/
     -webkit-transform: rotate(-10deg);
     -moz-transform: rotate(-10deg);
     -ms-transform: rotate(-10deg);
     -o-transform: rotate(-10deg);
+    margin-bottom: 0.5em;
 }
 
 p#sec_logo { 
@@ -174,25 +178,57 @@ div#map svg {
 
 div#map path {
     fill: #eee;
-    stroke: #aaa;
+    stroke: #ccc;
 }
+
+div#map path.grp_A {
+    fill: #e41a1c;
+    stroke: #111;
+}
+
+div#map path.grp_B {
+    fill: #377eb8;
+    stroke: #111;
+}
+
+div#map path.grp_C {
+    fill: #4daf4a;
+    stroke: #111;
+}
+
+div#map path.grp_D {
+    fill: #984EA3;
+    stroke: #111;
+}
+
+div#map path.dnq {
+    fill: #ccc;
+    stroke: #111;
+} 
 
 div#countryinfo {
     position: absolute;
     left: 5px;
-    top: 20px;
+    top: 17px;
     width: 300px;
-    height: 347px;
+    height: 352px;
     background: rgba(32, 32, 32, 0.2);
     color: #eee;
     padding: 20px;
 }
 
-div#countryinfo h1 {
-    font-size: 24px;
+div#countryinfo span#country {
+    float: left;
+}
+
+div#countryinfo h2 {
+    font-size: 17px;
+    font-variant: small-caps;
     color: #fff;
-    text-shadow: -1px 0 black, 0 1px black,
-          1px 0 black, 0 -1px black;
+}
+
+div#countryinfo span#flag {
+    float: right;
 }
 
 div#groups {
@@ -214,16 +250,24 @@ div.group_header {
     padding: 0.5em;
     border-top-left-radius: 0.1em;
     border-bottom-left-radius: 0.1em;
-    border: 1px solid #aaa;
-    background: #aaa;
+    border: 1px solid #111;
+    border-right: 0px;
     color: #fff;
 }
+
+div.group_header#A { background: #e41a1c; }
+
+div.group_header#B { background: #377eb8; }
+
+div.group_header#C { background: #4daf4a; }
+
+div.group_header#D { background: #984EA3; }
 
 div.group_table {
     display: table-cell;
     vertical-align: middle;
     padding: 1em;
-    border: 2px solid #aaa;
+    border: 1px solid #111;
     border-top-right-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
 }
