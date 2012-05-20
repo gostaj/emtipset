@@ -253,6 +253,7 @@ div.group_header {
     border: 1px solid #111;
     border-right: 0px;
     color: #fff;
+    width: 20%;
 }
 
 div.group_header#A { background: #e41a1c; }
@@ -271,7 +272,6 @@ div.group_table {
     border-top-right-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
 }
-
 
 footer { 
     margin-top: 0; 

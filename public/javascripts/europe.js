@@ -42,6 +42,6 @@ d3.json("public/javascripts/europe.json", function(collection) {
 function getCountryInfo(d) {
     d3.select("div#countryinfo h2").text(d.properties.NAME);
     var a2 = d.properties.GU_A3;
-    d3.select("div#countryinfo span#flag img").attr("src", "img/" + a2 + ".png").attr("alt", a2);
+    d3.select("div#countryinfo span#flag img").attr("src", "public/images/" + a2 + ".png").attr("alt", a2);
 }
 
