@@ -13,7 +13,7 @@ var countries = d3.select("div#map")
   .append("g")
     .attr("id", "countries");
 
-d3.json("/public/javascripts/europe_50m.json", function(collection) {
+d3.json("/public/javascripts/europe.json", function(collection) {
   countries 
     .selectAll("path")
       .data(collection.features)
