@@ -273,6 +273,12 @@ div.group_table {
     border-bottom-right-radius: 0.3em;
 }
 
+table { border-collapse:collapse; }
+
+input[type="radio"] {
+    margin: 4px;
+}
+
 footer { 
     margin-top: 0; 
     margin-bottom: 10px; 
