@@ -41,9 +41,9 @@
     <div class="fill">
         <div class="container">
             <h3><a href="#">Brothas EM-tips 2012</a></h3>
-            <div style="text-align:right;color:white" class="clearfix">
+            <div style="text-align:right;color:white" class="clearfix" id="account_box">
                 #{if user}
-                    Inloggad som: ${user.displayName}
+                    Inloggad som <img src="${user.avatarUrl}" width="30px" height="30px"/> ${user.displayName}
                 #{/if}
                 #{else}
                     Du är inte inloggad!
