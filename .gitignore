@@ -7,7 +7,6 @@
 # Ignore Play! working directory #
 bin
 data
-db
 dist
 eclipse
 lib
