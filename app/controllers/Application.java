@@ -1,14 +1,26 @@
 package controllers;
 
 import controllers.securesocial.SecureSocial;
+import mocks.MockFactory;
+import play.Play;
 import play.mvc.Controller;
-import play.mvc.With;
+import securesocial.provider.SocialUser;
 
-@With( SecureSocial.class )
+//@With( SecureSocial.class )
 public class Application extends Controller {
 
     public static void index() {
-        render();
+        SocialUser user = getSocialUser();
+        render(user);
+    }
+
+    static SocialUser getSocialUser() {
+        if (Play.mode.isProd()) {
+            SecuredController.makeUserUserIsLoggedIn();
+            return SecureSocial.getCurrentUser();
+        } else {
+            return MockFactory.getMockedSocialUser();
+        }
     }
 
 }
