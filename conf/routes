@@ -5,7 +5,14 @@
 * /auth module:securesocial
 
 # Home page
-GET / Application.index
+GET     /           Application.index
+
+# Shows the bets the current logged in user have made
+GET     /gamebets   GameBets.list
+#GET   /games/:id   Games.show(id: Long)
+
+POST    /gamebet    GameBets.create
+
 
 # Ignore favicon requests
 GET /favicon.ico staticFile:/public/images/favicon.png
