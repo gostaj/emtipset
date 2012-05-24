@@ -14,11 +14,24 @@
 This is a Play 1.2.4 application for betting on the games in the UEFA European 2012 soccer tournament.
 http://www.uefa.com/uefaeuro/season=2012/matches/index.html
 
-1) Download and install Play 1.2.4:
-   http://download.playframework.org/releases/play-1.2.4.zip
-2) Check out this code
-3) Step into it using your favorite shell
-4) Run 'play deps'
-5) Run 'play run'
-6) Watch play start up the 'emtipset' webapp
-7) Browse to http://localhost:9000
+ 1) Download and install Play 1.2.4:
+    http://download.playframework.org/releases/play-1.2.4.zip
+ 2) Download and install or get access to a PostgreSQL database
+    http://www.postgresql.org/download/
+ 3) Create an "emtipset" PostgreSQL database by running 'createdb emtipset'
+ 4) Start the database if needed. I'm on a Mac and I run
+    'sudo su postgres'
+    '/opt/local/lib/postgresql91/bin/postgres -D /opt/local/var/db/postgresql91/defaultdb &'
+ 5) If needed, create a separate user and grant it privileges on the emtipset database
+    'psql91 emtipset'
+    'CREATE USER emtipset WITH PASSWORD 'emtipset';'
+    'GRANT ALL PRIVILEGES ON DATABASE emtipset to emtipset;'
+ 6) Get the connection URL and export it to an environment variable where you run play
+    'export DATABASE_URL=postgres://emtipset:emtipset@localhost/emtipset'
+ 7) Check out this code
+ 8) Step into it using your favorite shell
+ 9) Run 'play deps'
+10) Run 'play run'
+11) Watch play start up the 'emtipset' webapp
+12) Browse to http://localhost:9000 and apply the DB evolutions
+13) Voilà!
