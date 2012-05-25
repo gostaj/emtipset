@@ -1,0 +1,13 @@
+#{list items: _providers, as: 'provider'}
+  #{if provider.type != securesocial.provider.ProviderType.userpass}
+    #{if (provider.authMethod == securesocial.provider.AuthenticationMethod.OPENID ||
+          provider.authMethod == securesocial.provider.AuthenticationMethod.OPENID_OAUTH_HYBRID) &&
+          provider.needsUsername() }
+      <a href="javascript:openid('${provider.type}')">Provider is not implemented in this tag since it needs a JS to function!
+    #{/if}
+    #{else}
+      <a href="@{securesocial.SecureSocial.authenticate(provider.type.toString().toLowerCase())}">
+    #{/else}
+    <img src="@{'/public/images/providers/'}/${provider.type.toString().toLowerCase()}.png" title="${provider.type}"/></a>
+  #{/if}
+#{/list}
