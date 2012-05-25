@@ -1,225 +1,177 @@
 #{extends 'main.html'/}
-#{set title: 'Brothas EM-tips 2012' /}
-
-#{set 'moreStyles'}
-  #{stylesheet 'normalize.css' /}
-  #{stylesheet 'style.css' /}
-  #{stylesheet 'fonts.css' /}
+#{set 'moreScripts'}
+  #{script 'serverCommunication.js'/}
 #{/set}
 
-    <div id="page">
-    <div id="pagecontent">
-    <header role="banner">
-        <div id="logo_mainnav">        
-	        <p id="logo">
-            EM-tipset
-            </p>
-            <nav id="mainnav">
-            <ul>
-                <li id="login"><a href="#" title="Logga in">Logga in</a></li>
-                <li id="help"><a href="#" title="Hjälp">Hjälp</a></li>
-                <li id=""><a href="#" title=""></a></li>
-            </ul>
-            </nav>
-            <!--p id="sec_logo">
-                <a title="Uefa European Championship 2012" href="#"><img alt="Uefa 12" src="img/logo.png" /></a>
-            </p-->
-        </div>
-    </header>
-    <div role="main">
-        <div id="map">
-            <div id="countryinfo">
-                <span id="country"><h2>V&auml;lj ett land</h2></span>
-                <span id="flag"><img alt="" src="" width=50px /></span>
-            </div>
-        </div>
-        <div id="groups">
-            <form method="post" action="#">
-            <div class="group">
-                <div id="A" class="group_header">A</div>
-                <div class="group_table">
+<div id="groups">
+    <form method="post" action="#">
+        <div class="group">
+            <div id="A" class="group_header">A</div>
+            <div class="group_table">
                 <table border="0">
                     <thead>
                     <tr><td class="header"></td><td class="header"></td><td class="header">1</td><td class="header">X</td><td class="header">2</td></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="date"><time datetime="2012-06-08T18:00+02:00">8/6 18:00</time></td>
-			            <td class="teams"><p id="game_1">Polen - Grekland</p></td>
+                    <tr><td class="date"><time datetime="2012-06-08T18:00+02:00">8/6 18:00</time></td>
+                        <td class="teams"><p id="game_1">Polen - Grekland</p></td>
                         <td class="bet"><input name="game_1" type="radio" id="game_1_1" value="1" onclick="setGameBet(1, '1');" /></td>
-		                <td class="bet"><input name="game_1" type="radio" id="game_1_X" value="X" onclick="setGameBet(1, 'X');" /></td>
-		                <td class="bet"><input name="game_1" type="radio" id="game_1_2" value="2" onclick="setGameBet(1, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-08T20:45+02:00">8/6 20:45</time></td>
+                        <td class="bet"><input name="game_1" type="radio" id="game_1_X" value="X" onclick="setGameBet(1, 'X');" /></td>
+                        <td class="bet"><input name="game_1" type="radio" id="game_1_2" value="2" onclick="setGameBet(1, '2');" /></td></tr>
+                    <tr><td class="date"><time datetime="2012-06-08T20:45+02:00">8/6 20:45</time></td>
                         <td class="teams"><p id="game_2">Ryssland - Tjeckien</p></td>
                         <td class="bet"><input name="game_2" type="radio" id="game_2_1" value="1" onclick="setGameBet(2, '1');" /></td>
-            		    <td class="bet"><input name="game_2" type="radio" id="game_2_X" value="X" onclick="setGameBet(2, 'X');" /></td>
-            		    <td class="bet"><input name="game_2" type="radio" id="game_2_2" value="2" onclick="setGameBet(2, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-12T18:00+02:00">12/6 18:00</time></td>
+                        <td class="bet"><input name="game_2" type="radio" id="game_2_X" value="X" onclick="setGameBet(2, 'X');" /></td>
+                        <td class="bet"><input name="game_2" type="radio" id="game_2_2" value="2" onclick="setGameBet(2, '2');" /></td></tr>
+                    <tr><td class="date"><time datetime="2012-06-12T18:00+02:00">12/6 18:00</time></td>
                         <td class="teams"><p id="game_9">Grekland - Tjeckien</p></td>
                         <td class="bet"><input name="game_9" type="radio" id="game_9_1" value="1" onclick="setGameBet(9, '1');" /></td>
                         <td class="bet"><input name="game_9" type="radio" id="game_9_X" value="X" onclick="setGameBet(9, 'X');" /></td>
                         <td class="bet"><input name="game_9" type="radio" id="game_9_2" value="2" onclick="setGameBet(9, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-12T20:45+02:00">12/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-12T20:45+02:00">12/6 20:45</time></td>
                         <td class="teams"><p id="game_10">Polen - Ryssland</p></td>
                         <td class="bet"><input name="game_10" type="radio" id="game_10_1" value="1" onclick="setGameBet(10, '1');" /></td>
                         <td class="bet"><input name="game_10" type="radio" id="game_10_X" value="X" onclick="setGameBet(10, 'X');" /></td>
                         <td class="bet"><input name="game_10" type="radio" id="game_10_2" value="2" onclick="setGameBet(10, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-16T20:45+02:00">16/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-16T20:45+02:00">16/6 20:45</time></td>
                         <td class="teams"><p id="game_17">Tjeckien - Polen</p></td>
                         <td class="bet"><input name="game_17" type="radio" id="game_17_1" value="1" onclick="setGameBet(17, '1');" /></td>
                         <td class="bet"><input name="game_17" type="radio" id="game_17_X" value="X" onclick="setGameBet(17, 'X');" /></td>
                         <td class="bet"><input name="game_17" type="radio" id="game_17_2" value="2" onclick="setGameBet(17, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-16T20:45+02:00">16/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-16T20:45+02:00">16/6 20:45</time></td>
                         <td class="teams"><p id="game_18">Grekland - Ryssland</p></td>
                         <td class="bet"><input name="game_18" type="radio" id="game_18_1" value="1" onclick="setGameBet(18, '1');" /></td>
                         <td class="bet"><input name="game_18" type="radio" id="game_18_X" value="X" onclick="setGameBet(18, 'X');" /></td>
                         <td class="bet"><input name="game_18" type="radio" id="game_18_2" value="2" onclick="setGameBet(18, '2');" /></td></tr>
                     </tbody>
                 </table>
-                </div>
             </div>
-            <div class="group">
-                <div id="B" class="group_header">B</div>
-                <div class="group_table">
+        </div>
+        <div class="group">
+            <div id="B" class="group_header">B</div>
+            <div class="group_table">
                 <table border="0">
                     <thead>
                     <tr><td class="header"></td><td class="header"></td><td class="header">1</td><td class="header">X</td><td class="header">2</td></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="date"><time datetime="2012-06-09T19:00+03:00">9/6 18:00</time></td>
+                    <tr><td class="date"><time datetime="2012-06-09T19:00+03:00">9/6 18:00</time></td>
                         <td class="teams"><p id="game_3">Holland - Danmark</p></td>
                         <td class="bet"><input name="game_3" type="radio" id="game_3_1" value="1" onclick="setGameBet(3, '1');" /></td>
                         <td class="bet"><input name="game_3" type="radio" id="game_3_X" value="X" onclick="setGameBet(3, 'X');" /></td>
                         <td class="bet"><input name="game_3" type="radio" id="game_3_2" value="2" onclick="setGameBet(3, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-09T21:45+03:00">9/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-09T21:45+03:00">9/6 20:45</time></td>
                         <td class="teams"><p id="game_4">Tyskland - Portugal</p></td>
                         <td class="bet"><input name="game_4" type="radio" id="game_4_1" value="1" onclick="setGameBet(4, '1');" /></td>
                         <td class="bet"><input name="game_4" type="radio" id="game_4_X" value="X" onclick="setGameBet(4, 'X');" /></td>
                         <td class="bet"><input name="game_4" type="radio" id="game_4_2" value="2" onclick="setGameBet(4, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-13T19:00+03:00">13/6 18:00</time></td>
+                    <tr><td class="date"><time datetime="2012-06-13T19:00+03:00">13/6 18:00</time></td>
                         <td class="teams"><p id="game_11">Danmark - Portugal</p></td>
                         <td class="bet"><input name="game_11" type="radio" id="game_11_1" value="1" onclick="setGameBet(11, '1');" /></td>
                         <td class="bet"><input name="game_11" type="radio" id="game_11_X" value="X" onclick="setGameBet(11, 'X');" /></td>
                         <td class="bet"><input name="game_11" type="radio" id="game_11_2" value="2" onclick="setGameBet(11, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-13T21:45+03:00">13/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-13T21:45+03:00">13/6 20:45</time></td>
                         <td class="teams"><p id="game_12">Holland - Tyskland</p></td>
                         <td class="bet"><input name="game_12" type="radio" id="game_12_1" value="1" onclick="setGameBet(12, '1');" /></td>
                         <td class="bet"><input name="game_12" type="radio" id="game_12_X" value="X" onclick="setGameBet(12, 'X');" /></td>
                         <td class="bet"><input name="game_12" type="radio" id="game_12_2" value="2" onclick="setGameBet(12, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-17T21:45+03:00">17/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-17T21:45+03:00">17/6 20:45</time></td>
                         <td class="teams"><p id="game_19">Portugal - Holland</p></td>
                         <td class="bet"><input name="game_19" type="radio" id="game_19_1" value="1" onclick="setGameBet(19, '1');" /></td>
                         <td class="bet"><input name="game_19" type="radio" id="game_19_X" value="X" onclick="setGameBet(19, 'X');" /></td>
                         <td class="bet"><input name="game_19" type="radio" id="game_19_2" value="2" onclick="setGameBet(19, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-17T21:45+03:00">17/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-17T21:45+03:00">17/6 20:45</time></td>
                         <td class="teams"><p id="game_20">Danmark - Tyskland</p></td>
                         <td class="bet"><input name="game_20" type="radio" id="game_20_1" value="1" onclick="setGameBet(20, '1');" /></td>
                         <td class="bet"><input name="game_20" type="radio" id="game_20_X" value="X" onclick="setGameBet(20, 'X');" /></td>
                         <td class="bet"><input name="game_20" type="radio" id="game_20_2" value="2" onclick="setGameBet(20, '2');" /></td></tr>
                     </tbody>
                 </table>
-                </div>
             </div>
-            <div class="group">
-                <div id="C" class="group_header">C</div>
-                <div class="group_table">
+        </div>
+        <div class="group">
+            <div id="C" class="group_header">C</div>
+            <div class="group_table">
                 <table border="0">
                     <thead>
                     <tr><td class="header"></td><td class="header"></td><td class="header">1</td><td class="header">X</td><td class="header">2</td></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="date"><time datetime="2012-06-10T18:00+02:00">10/6 18:00</time></td>
+                    <tr><td class="date"><time datetime="2012-06-10T18:00+02:00">10/6 18:00</time></td>
                         <td class="teams"><p id="game_5">Spanien - Italien</p></td>
                         <td class="bet"><input name="game_5" type="radio" id="game_5_1" value="1" onclick="setGameBet(5, '1');" /></td>
                         <td class="bet"><input name="game_5" type="radio" id="game_5_X" value="X" onclick="setGameBet(5, 'X');" /></td>
                         <td class="bet"><input name="game_5" type="radio" id="game_5_2" value="2" onclick="setGameBet(5, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-10T20:45+02:00">10/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-10T20:45+02:00">10/6 20:45</time></td>
                         <td class="teams"><p id="game_6">Irland - Kroatien</p></td>
                         <td class="bet"><input name="game_6" type="radio" id="game_6_1" value="1" onclick="setGameBet(6, '1');" /></td>
                         <td class="bet"><input name="game_6" type="radio" id="game_6_X" value="X" onclick="setGameBet(6, 'X');" /></td>
                         <td class="bet"><input name="game_6" type="radio" id="game_6_2" value="2" onclick="setGameBet(6, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-14T18:00+02:00">14/6 18:00</time></td>
+                    <tr><td class="date"><time datetime="2012-06-14T18:00+02:00">14/6 18:00</time></td>
                         <td class="teams"><p id="game_13">Italien - Kroatien</p></td>
                         <td class="bet"><input name="game_13" type="radio" id="game_13_1" value="1" onclick="setGameBet(13, '1');" /></td>
                         <td class="bet"><input name="game_13" type="radio" id="game_13_X" value="X" onclick="setGameBet(13, 'X');" /></td>
                         <td class="bet"><input name="game_13" type="radio" id="game_13_2" value="2" onclick="setGameBet(13, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-14T20:45+02:00">14/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-14T20:45+02:00">14/6 20:45</time></td>
                         <td class="teams"><p id="game_14">Spanien - Irland</p></td>
                         <td class="bet"><input name="game_14" type="radio" id="game_14_1" value="1" onclick="setGameBet(14, '1');" /></td>
                         <td class="bet"><input name="game_14" type="radio" id="game_14_X" value="X" onclick="setGameBet(14, 'X');" /></td>
                         <td class="bet"><input name="game_14" type="radio" id="game_14_2" value="2" onclick="setGameBet(14, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-18T20:45+02:00">18/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-18T20:45+02:00">18/6 20:45</time></td>
                         <td class="teams"><p id="game_21">Kroatien - Spanien</p></td>
                         <td class="bet"><input name="game_21" type="radio" id="game_21_1" value="1" onclick="setGameBet(21, '1');" /></td>
                         <td class="bet"><input name="game_21" type="radio" id="game_21_X" value="X" onclick="setGameBet(21, 'X');" /></td>
                         <td class="bet"><input name="game_21" type="radio" id="game_21_2" value="2" onclick="setGameBet(21, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-18T20:45+02:00">18/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-18T20:45+02:00">18/6 20:45</time></td>
                         <td class="teams"><p id="game_22">Italien - Irland</p></td>
                         <td class="bet"><input name="game_22" type="radio" id="game_22_1" value="1" onclick="setGameBet(22, '1');" /></td>
                         <td class="bet"><input name="game_22" type="radio" id="game_22_X" value="X" onclick="setGameBet(22, 'X');" /></td>
                         <td class="bet"><input name="game_22" type="radio" id="game_22_2" value="2" onclick="setGameBet(22, '2');" /></td></tr>
                     </tbody>
                 </table>
-                </div>
             </div>
-            <div class="group">
-                <div id="D" class="group_header">D</div>
-                <div class="group_table">
+        </div>
+        <div class="group">
+            <div id="D" class="group_header">D</div>
+            <div class="group_table">
                 <table border="0">
                     <thead>
                     <tr><td class="header"></td><td class="header"></td><td class="header">1</td><td class="header">X</td><td class="header">2</td></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="date"><time datetime="2012-06-11T19:00+03:00">11/6 18:00</time></td>
+                    <tr><td class="date"><time datetime="2012-06-11T19:00+03:00">11/6 18:00</time></td>
                         <td class="teams"><p id="game_7">Franrike - England</p></td>
                         <td class="bet"><input name="game_7" type="radio" id="game_7_1" value="1" onclick="setGameBet(7, '1');" /></td>
                         <td class="bet"><input name="game_7" type="radio" id="game_7_X" value="X" onclick="setGameBet(7, 'X');" /></td>
                         <td class="bet"><input name="game_7" type="radio" id="game_7_2" value="2" onclick="setGameBet(7, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-11T18:00+02:00">11/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-11T18:00+02:00">11/6 20:45</time></td>
                         <td class="teams"><p id="game_8">Ukraina - Sverige</p></td>
                         <td class="bet"><input name="game_8" type="radio" id="game_8_1" value="1" onclick="setGameBet(8, '1');" /></td>
                         <td class="bet"><input name="game_8" type="radio" id="game_8_X" value="X" onclick="setGameBet(8, 'X');" /></td>
                         <td class="bet"><input name="game_8" type="radio" id="game_8_2" value="2" onclick="setGameBet(8, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-15T19:00+03:00">15/6 18:00</time></td>
+                    <tr><td class="date"><time datetime="2012-06-15T19:00+03:00">15/6 18:00</time></td>
                         <td class="teams"><p id="game_15">Ukraina - Frankrike</p></td>
                         <td class="bet"><input name="game_15" type="radio" id="game_15_1" value="1" onclick="setGameBet(15, '1');" /></td>
                         <td class="bet"><input name="game_15" type="radio" id="game_15_X" value="X" onclick="setGameBet(15, 'X');" /></td>
                         <td class="bet"><input name="game_15" type="radio" id="game_15_2" value="2" onclick="setGameBet(15, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-15T21:45+03:00">15/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-15T21:45+03:00">15/6 20:45</time></td>
                         <td class="teams"><p id="game_16">Sverige - England</p></td>
                         <td class="bet"><input name="game_16" type="radio" id="game_16_1" value="1" onclick="setGameBet(16, '1');" /></td>
                         <td class="bet"><input name="game_16" type="radio" id="game_16_X" value="X" onclick="setGameBet(16, 'X');" /></td>
                         <td class="bet"><input name="game_16" type="radio" id="game_16_2" value="2" onclick="setGameBet(16, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-19T21:45+03:00">19/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-19T21:45+03:00">19/6 20:45</time></td>
                         <td class="teams"><p id="game_23">Sverige - Frankrike</p></td>
                         <td class="bet"><input name="game_23" type="radio" id="game_23_1" value="1" onclick="setGameBet(23, '1');" /></td>
                         <td class="bet"><input name="game_23" type="radio" id="game_23_X" value="X" onclick="setGameBet(23, 'X');" /></td>
                         <td class="bet"><input name="game_23" type="radio" id="game_23_2" value="2" onclick="setGameBet(23, '2');" /></td></tr>
-                        <tr><td class="date"><time datetime="2012-06-19T21:45+03:00">19/6 20:45</time></td>
+                    <tr><td class="date"><time datetime="2012-06-19T21:45+03:00">19/6 20:45</time></td>
                         <td class="teams"><p id="game_24">England - Ukraina</p></td>
                         <td class="bet"><input name="game_24" type="radio" id="game_24_1" value="1" onclick="setGameBet(24, '1');" /></td>
                         <td class="bet"><input name="game_24" type="radio" id="game_24_X" value="X" onclick="setGameBet(24, 'X');" /></td>
                         <td class="bet"><input name="game_24" type="radio" id="game_24_2" value="2" onclick="setGameBet(24, '2');" /></td></tr>
                     </tbody>
                 </table>
-                </div>
             </div>
-            </form>
         </div>
-    </div>
-
-    </div>
-   
-    <footer id="pagefooter">
-    <div id="footer_content">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet.        
-    </div>
-    <div id="footer_logo">
-    <p id="logo">
-        <a title="" href="#"><img alt="" src="@{'/public/images/UEFA_Euro_2012_logo.png'}" /></a>
-    </p>
-    </div>
-    </footer>
-    </div>
-
-<script type="text/javascript" language="javascript"  src="/public/javascripts/d3.v2.js"></script>
-<script type="text/javascript" language="javascript"  src="/public/javascripts/europe.js"></script>
+    </form>
+</div>

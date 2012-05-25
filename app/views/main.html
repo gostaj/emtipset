@@ -2,14 +2,15 @@
 
 <html>
 <head>
-    <title>#{get 'title' /}</title>
+    <title>Brothas EM-tips 2012</title>
     <meta charset="${_response_encoding}">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap-1.3.0/bootstrap.min.css'}">
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+
+    #{stylesheet 'normalize.css' /}
+    #{stylesheet 'style.css' /}
+    #{stylesheet 'fonts.css' /}
     #{get 'moreStyles' /}
     <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     <script type="text/javascript">
@@ -37,28 +38,56 @@
 </div>
 #{/if}
 
-<div class="topbar">
-    <div class="fill">
-        <div class="container">
-            <h3><a href="#">Brothas EM-tips 2012</a></h3>
-            <div style="text-align:right;color:white" class="clearfix" id="account_box">
-                #{if user}
-                    Inloggad som <img src="${user.avatarUrl}" width="30px" height="30px"/> ${user.displayName}
-                #{/if}
-                #{else}
-                    Du är inte inloggad!
-                #{/else}
+
+<div id="page">
+    <div id="pagecontent">
+        <header role="banner">
+            <div id="logo_mainnav">
+                <p id="logo">
+                    EM-tipset
+                </p>
+                <nav id="mainnav">
+                    <div style="text-align:right;color:black" class="clearfix" id="account_box">
+                        #{if user}
+                          Inloggad som <img src="${user.avatarUrl}" width="40px" height="40px"/> ${user.displayName}
+                          <a href="@{securesocial.SecureSocial.logout}" >Logga ut</a>
+                        #{/if}
+                        #{else}
+                          Du är inte inloggad, logga in: #{loginProviders providers:providers /}
+                        #{/else}
+                    </div>
+                </nav>
             </div>
-        </div>
-    </div>
-</div>
-<div class="container" style="padding-top:50px;">
-    <div class="row">
-        <div class="span10 columns offset2">
+        </header>
+
+        <div role="main">
+            <div id="map">
+                <div id="countryinfo">
+                    <span id="country"><h2>V&auml;lj ett land</h2></span>
+                    <span id="flag"><img alt="" src="" width=50px /></span>
+                </div>
+            </div>
+
             #{doLayout /}
+
         </div>
     </div>
+
+    <footer id="pagefooter">
+        <div id="footer_content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet.
+        </div>
+        <div id="footer_logo">
+            <p id="logo">
+                <a title="" href="#"><img alt="" src="@{'/public/images/UEFA_Euro_2012_logo.png'}" /></a>
+            </p>
+        </div>
+    </footer>
 </div>
+
+<script type="text/javascript" language="javascript"  src="/public/javascripts/d3.v2.js"></script>
+<script type="text/javascript" language="javascript"  src="/public/javascripts/europe.js"></script>
+
 
 </body>
 </html>

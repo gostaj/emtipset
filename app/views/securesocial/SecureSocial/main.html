@@ -10,17 +10,25 @@
         #{get 'moreScripts' /}
     </head>
     <body>
-        <div class="topbar">
-            <div class="fill">
-                <div class="container">
-                    <h3><a href="@{securesocial.SecureSocial.login()}">SecureSocial Module</a></h3>
-                    
+
+    <div id="page">
+        <div id="pagecontent">
+            <header role="banner">
+                <div id="logo_mainnav">
+                    <p id="logo">
+                        EM-tipset
+                    </p>
+                    <nav id="mainnav">
+                        <ul>
+                            <li id="login"><a href="#" title="Logga in">Logga in</a></li>
+                            <li id="help"><a href="#" title="Hjälp">Hjälp</a></li>
+                            <li id=""><a href="#" title=""></a></li>
+                        </ul>
+                    </nav>
                 </div>
-            </div>
-        </div>
-        <div class="container" style="padding-top:50px;">
-            <div class="row">
-                <div class="span10 columns offset2">
+            </header>
+
+
                     #{doLayout /}
                 </div>
             </div>
