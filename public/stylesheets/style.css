@@ -113,7 +113,6 @@ header[role="banner"] a {
     color: #a6a6a6;
     font-weight: normal;
     text-decoration: none;
-    font-size: 10px;
 }
 
 p#logo {
@@ -135,17 +134,9 @@ p#logo {
     margin-bottom: 0.5em;
 }
 
-p#sec_logo { 
-    padding: 2% 3% 2% 2%;
-    float: right;
-}
-
-p#sec_logo img {
-    width: 100px;
-}
-
 nav#mainnav {
-    float: left;
+    float: right;
+    margin-top: 10px;
 }
 
 nav#mainnav > ul {
@@ -157,6 +148,22 @@ nav#mainnav > ul li {
     float: left;
     padding: 1% 3%;
     margin-right: 10px;
+    text-align: right;
+    width: 240px;
+}
+
+nav#mainnav img {
+    float: right;
+    padding: 10px;
+    margin-left: 10px;
+    border: 2px dotted #ccc;
+    -moz-border-radius:.5em;
+    -webkit-border-radius:.5em;
+    border-radius:.5em;
+}
+
+nav#mainnav div#username {
+    margin-top: 10px;
 }
 
 div#main_content {
@@ -275,7 +282,7 @@ div.group_table {
 
 table { border:0; margin: 0; border-collapse:collapse; }
 td { border: 0; }
-td.header { border: 0; margin: 0; padding: 0; text-align: right;}
+td.header { border: 0; margin: 0; padding: 0; text-align: center;}
 td.date {
     font-size: 10px;
 }
@@ -290,7 +297,7 @@ td.date, td.teams, td.bet {
 
 td.bet { 
     width: 5%; 
-    padding: 0;
+    padding: 7px;
     margin: 0;
 }
 

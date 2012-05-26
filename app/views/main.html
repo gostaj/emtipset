@@ -47,15 +47,18 @@
                     EM-tipset
                 </p>
                 <nav id="mainnav">
-                    <div style="text-align:right;color:black" class="clearfix" id="account_box">
+                    <ul>
                         #{if user}
-                          Inloggad som <img src="${user.avatarUrl}" width="40px" height="40px"/> ${user.displayName}
-                          <a href="@{securesocial.SecureSocial.logout}" >Logga ut</a>
+                            <li>
+                            <div id="avatar"><img src="${user.avatarUrl}" width="40px" height="40px"/></div> 
+                            <div id="username">Inloggad som ${user.displayName}</div> 
+                            <div id="logout"><a href="@{securesocial.SecureSocial.logout}" >Logga ut</a></div>
+                            </li>
                         #{/if}
                         #{else}
-                          Du är inte inloggad, logga in: #{loginProviders providers:providers /}
+                            <li>Du är inte inloggad, logga in: #{loginProviders providers:providers /}</li>
                         #{/else}
-                    </div>
+                    </ul>
                 </nav>
             </div>
         </header>
