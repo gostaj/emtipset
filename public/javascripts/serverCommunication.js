@@ -8,12 +8,24 @@ var request = $.ajax({
   cache: false
 });
 
-request.done(function(msg) {
+request.fail(function(jqXHR, textStatus) {
+  alert( "Problem att kontakta servern, prova att tippa igen eller logga ut och in igen. \nFel: " + textStatus);
+});
 
+}
+
+
+
+function getGameBets() {
+
+var request = $.getJSON('/gamebets', function(data) {
+  $.each(data, function(key, gameBet) {
+    $("#game_" + gameBet.gameId + "_" + gameBet.result).attr("checked", "checked");
+  });
 });
 
 request.fail(function(jqXHR, textStatus) {
-  alert( "Problem att kontakta servern, prova att tippa igen eller logga ut och in igen. \nFel: " + textStatus);
+  alert( "Problem att kontakta servern, prova att ladda om sidan eller logga ut och in igen. \nFel: " + textStatus);
 });
 
 }
