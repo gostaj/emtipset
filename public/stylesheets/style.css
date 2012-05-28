@@ -224,18 +224,31 @@ div#countryinfo {
     padding: 20px;
 }
 
-div#countryinfo span#country {
+div#countryinfo div#country {
     float: left;
 }
 
 div#countryinfo h2 {
-    font-size: 17px;
-    font-variant: small-caps;
+    font-family: "YanoneKaffeesatzBold";
+    font-size: 50px;
     color: #fff;
+    margin-bottom: 20px;
 }
 
-div#countryinfo span#flag {
+div#countryinfo div#flag {
     float: right;
+}
+
+div#countryinfo img {
+    width: 50px;
+}
+
+div#countryinfo div#info {
+    clear: both;
+}
+
+div#countryinfo div#info p {
+    margin-bottom: 0.2em;
 }
 
 div#groups {
