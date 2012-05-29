@@ -365,7 +365,7 @@ footer {
 }        
 
 div#footer_content {
-    padding: 3em 0 3em 3em;
+    padding: 3em 0 1em 3em;
     width: 74%;
     float: left;
     text-align: justify;
@@ -378,4 +378,11 @@ div#footer_logo {
 
 div#footer_logo img {
     width: 100px;
+}
+
+div#footer_colophon {
+    clear: both;
+    font-size: 10px;
+    text-align: center;
+    padding: 1em;
 }
