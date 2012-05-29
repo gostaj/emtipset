@@ -252,6 +252,7 @@ div#countryinfo div#info p {
 }
 
 div#instructions {
+    float: left;
     font-family: "YanoneKaffeesatzRegular";
     font-size: 24px;
     padding-top: 20px;
@@ -264,6 +265,18 @@ div#instructions div#obs {
     margin-top: 7px;
 }
 
+div#points {
+    font-family: "YanoneKaffeesatzRegular";
+    font-size: 30px;
+    float: right;
+    margin: 1em 1em 0 0;
+}
+
+div#points span#points {
+    font-family: "YanoneKaffeesatzBold";
+    font-size: 40px;
+}
+
 div#groups {
     clear: both;
     padding: 1em 0;
@@ -272,7 +285,7 @@ div#groups {
 div.group {
     float: left;
     display: table;
-    width: 49%;
+    width: 48%;
     margin: 5px;
 }
 
