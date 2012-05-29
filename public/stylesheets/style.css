@@ -251,16 +251,29 @@ div#countryinfo div#info p {
     margin-bottom: 0.2em;
 }
 
+div#instructions {
+    font-family: "YanoneKaffeesatzRegular";
+    font-size: 24px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+div#instructions div#obs {
+    font-family: "YanoneKaffeesatzThin";
+    font-size: 20px;
+    margin-top: 7px;
+}
+
 div#groups {
     clear: both;
-    padding: 1em;
+    padding: 1em 0;
 }
 
 div.group {
     float: left;
     display: table;
-    width: 47%;
-    margin: 10px;
+    width: 49%;
+    margin: 5px;
 }
 
 div.group_header {
@@ -294,6 +307,7 @@ div.group_table {
 }
 
 table { border:0; margin: 0; border-collapse:collapse; }
+
 td { border: 0; }
 td.header { border: 0; margin: 0; padding: 0; text-align: center;}
 td.date {
@@ -303,15 +317,31 @@ td.date {
 td.teams {
 }
 
-td.date, td.teams, td.bet {
-    border: 0;
+td.date, td.teams, td.bet, td.result {
+    border: 2px solid white;
     vertical-align: middle;
+}
+
+td.score {
+    width: 11%:
 }
 
 td.bet { 
     width: 5%; 
-    padding: 7px;
+    padding: 5px;
     margin: 0;
+}
+
+td.result {
+    width: 3%;
+}
+
+td.result.right {
+    background-color: rgba(0,255,0,0.3);
+}
+
+td.result.wrong {
+    background-color: rgba(255,0,0,0.3);
 }
 
 td.teams > p {
