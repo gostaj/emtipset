@@ -44,8 +44,10 @@ function getCountryInfo(d, data) {
     if (data.q[d.properties.GU_A3]) {
         d3.select("div#countryinfo div#flag img").attr("src", "public/images/" + d.properties.GU_A3 + ".png").attr("alt", d.properties.GU_A3);
         d3.select("div#countryinfo div#info").text("");
-        d3.select("div#countryinfo div#info").append("p").attr("id", "fifa_rank").text("Fifa-ranking: "+data.q[d.properties.GU_A3].fifa_rank);
-        d3.select("div#countryinfo div#info").append("p").attr("id", "group").text("Grupp "+data.q[d.properties.GU_A3].group);
+        d3.select("div#countryinfo div#info").append("p").attr("id", "fifa_rank").text("Fifa-ranking: " + data.q[d.properties.GU_A3].fifa_rank);
+        d3.select("div#countryinfo div#info").append("p").attr("id", "group").text("Grupp " + data.q[d.properties.GU_A3].group);
+        d3.select("div#countryinfo div#info").append("p").attr("id", "odds").text("Odds för vinst: " + data.q[d.properties.GU_A3].odds + " (Unibet)"); 
+        d3.select("div#countryinfo div#info").append("p").attr("id", "odds_14").text("Odds för placering 1-4: " + data.q[d.properties.GU_A3].odds_14 + " (Unibet)");
         var status;
         switch(data.q[d.properties.GU_A3].status) {
             case "active": status = ""; break;
