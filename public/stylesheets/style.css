@@ -127,10 +127,10 @@ p#logo {
     text-shadow: 1px 1px rgba(0,0,0,1), 1px -1px rgba(0,0,0,1), -7px 7px rgba(0,0,0,1), -1px -1px rgba(0,0,0,1);
     /*text-shadow: -5px -5px rgba(0,0,255,0.5), -10px -10px rgba(255,0,0,0.5),
           -15px -15px rgba(255,255,0,0.5);*/
-    -webkit-transform: rotate(-10deg);
-    -moz-transform: rotate(-10deg);
-    -ms-transform: rotate(-10deg);
-    -o-transform: rotate(-10deg);
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    -o-transform: rotate(-7deg);
     margin-bottom: 0.5em;
 }
 
