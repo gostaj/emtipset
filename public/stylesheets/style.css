@@ -162,9 +162,8 @@ nav#mainnav img {
     border-radius:.5em;
 }
 
-nav#mainnav div#username {
-    margin-top: 10px;
-}
+nav#mainnav div#username { margin-top: 10px; }
+nav#mainnav div#login { margin-right: 10px; }
 
 div#main_content {
     background-color: #fff;
@@ -232,9 +231,9 @@ div#countryinfo div#country {
 
 div#countryinfo h2 {
     font-family: "YanoneKaffeesatzBold";
-    font-size: 50px;
+    font-size: 40px;
     color: #fff;
-    margin-bottom: 0.7em;
+    margin-bottom: 0.5em;
 }
 
 div#countryinfo div#flag {
@@ -306,13 +305,13 @@ div.group_header {
     vertical-align: middle;
     font-family: "YanoneKaffeesatzBold";
     font-size: 60px;
-    padding: 0.5em;
+    padding-left: 0.5em;
     border-top-left-radius: 0.1em;
     border-bottom-left-radius: 0.1em;
     border: 1px solid #111;
     border-right: 0px;
     color: #fff;
-    width: 15%;
+    width: 19%;
 }
 
 div.group_header#A { background: #e41a1c; }

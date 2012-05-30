@@ -56,7 +56,7 @@
                             </li>
                         #{/if}
                         #{else}
-                            <li>Du är inte inloggad, logga in: #{loginProviders providers:providers /}</li>
+                            <li><div id="login">Du är inte inloggad, logga in:</div> #{loginProviders providers:providers /}</li>
                         #{/else}
                     </ul>
                 </nav>
@@ -72,14 +72,6 @@
                     </div>
                 </div>
             </div>
-            <div id="instructions">
-                <div>Tippa fotbolls-EM 2012! Fyll i din tipsrad i tabellen nedan.</div>
-                <div id="obs">&Auml;r du os&auml;ker kanske kartan kan vara till hj&auml;lp. Obs! Resultatet sparas automatiskt.</div>
-            </div> 
-            
-            <div id="points">
-                <span id="label">Poäng: </span><span id="points">0</span>/56
-            </div>  
 
             #{doLayout /}
 
