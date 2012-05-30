@@ -22,18 +22,18 @@ p {margin: 0 0 1em 0; padding: 0;}
 a { font-weight: normal; }
 
 a:link {
-    color: #1899CB;
+    color: #222;
     text-decoration: none;
 }
 a:visited {
-    color: #1899CB;
+    color: #222;
     text-decoration: none;
 }
-a:active { color: #1899CB; }
+a:active { color: #222; }
 
 a:hover {
     text-decoration: none;
-    color: #1899CB;
+    color: #222;
     border-bottom: 1px dotted;
 }
 
@@ -234,7 +234,7 @@ div#countryinfo h2 {
     font-family: "YanoneKaffeesatzBold";
     font-size: 50px;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 0.7em;
 }
 
 div#countryinfo div#flag {
@@ -245,12 +245,22 @@ div#countryinfo img {
     width: 50px;
 }
 
+span.group_letter { padding: 0 5px; border-radius: 0.2em; }
+span.group_letter#grp_A { background: #e41a1c; }
+span.group_letter#grp_B { background: #377eb8; }
+span.group_letter#grp_C { background: #4daf4a; }
+span.group_letter#grp_D { background: #984EA3; }
+
 div#countryinfo div#info {
     clear: both;
 }
 
 div#countryinfo div#info p {
-    margin-bottom: 0.2em;
+    margin-bottom: 0.7em;
+}
+
+div#countryinfo div#info p#other {
+    font-family: "YanoneKaffeesatzBold";
 }
 
 div#instructions {
