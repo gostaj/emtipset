@@ -268,6 +268,7 @@ div#instructions {
     font-size: 24px;
     padding-top: 20px;
     padding-bottom: 10px;
+    width: 62%;
 }
 
 div#instructions div#obs {
@@ -344,6 +345,7 @@ td.teams {
 
 td.date, td.teams, td.bet, td.result {
     border: 2px solid white;
+    border-radius: 0.7em;
     vertical-align: middle;
 }
 
@@ -357,15 +359,11 @@ td.bet {
     margin: 0;
 }
 
-td.result {
-    width: 3%;
-}
-
-td.result.right {
+td.bet.right {
     background-color: rgba(0,255,0,0.3);
 }
 
-td.result.wrong {
+td.bet.wrong {
     background-color: rgba(255,0,0,0.3);
 }
 
