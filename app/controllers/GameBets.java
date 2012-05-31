@@ -22,7 +22,7 @@ public class GameBets extends Controller {
     public static void list() throws EmtipsetException {
         User user = getLoggedInUser();
 
-        List<GameBet> gameBets = GameBet.find("byUser", user).fetch();
+        List<GameBet> gameBets = GameBet.getByUser(user);
 
         // If you need more control over the JSON builder when passing an Object to the renderJSON(…) method, you can also pass in GSON serialisers and Type objects to customise the output.
         // https://sites.google.com/site/gson/gson-user-guide#TOC-Object-Examples  Gson.
@@ -38,10 +38,12 @@ public class GameBets extends Controller {
 
     public static void create(Long gameId, Character result) throws EmtipsetException {
         User user = getLoggedInUser();
+        if (Application.hasTournamentStarted() && !user.isResultUser()) {
+            error("Tournament has started, no bets can be made.");
+        }
         GameBet.validateResult(result);
         GameBet.placeGameBet(gameId, user, result);
-        Logger.info("Placing game bet for user " + user.id + " on game " + gameId + ": " + result);
-
+        Logger.info("Placed game bet for user " + user.id + " on game " + gameId + ": " + result);
     }
 
     private static User getLoggedInUser() throws EmtipsetException {
