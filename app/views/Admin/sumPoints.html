@@ -1,0 +1,10 @@
+#{extends 'Admin/adminMain.html'/}
+
+<div>
+    <b>Points calculated</b><br/>
+    <br/>
+
+    #{list items:userPoints, as:'userPoint' }
+    ${userPoint}<br/>
+    #{/list}
+</div>

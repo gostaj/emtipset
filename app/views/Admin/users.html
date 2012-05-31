@@ -1,0 +1,14 @@
+#{extends 'Admin/adminMain.html'/}
+
+<div>
+    <b>Users</b>
+
+    <table cellpadding="4" border="2">
+        <thead><tr><th></th><th>Id</th><th>Name</th><th>Email</th>
+            <th>Provider</th><th>Points</th><th>Group</th></tr></thead>
+        #{list items:users, as:'user' }
+        <tr><td><img src='${user.avatarUrl}'></td><td>${user.id}</td><td>${user.name}</td><td>${user.email}</td>
+            <td>${user.socialProvider}</td><td>${user.points}</td><td>${user.group}</td></tr>
+        #{/list}
+    </table>
+</div>
