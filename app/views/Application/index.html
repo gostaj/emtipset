@@ -9,7 +9,7 @@
 </div>
 
 <div id="points">
-    <span id="label">Poäng: </span><span id="points">0</span>/0 (50)
+    <span id="label">Poäng: </span><span id="userPoints">${emUser.points}</span>/<span id="maxPoints">0</span> (50)
 </div>
 
 <div id="groups">
@@ -249,4 +249,18 @@
 <script type="text/javascript">
     // Populate the radio buttons above
     getGameBets();
+
+    // Remove!
+    getResults();
+
+    %{ if (hasTournamentStarted) {
+  }%
+    // Mark bets as right or wrong and sum the points
+    getResults();
+    // Disable the possibility to bet
+    disableBetting();
+  %{
+     }
+  }%
+
 </script>
