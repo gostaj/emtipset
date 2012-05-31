@@ -390,13 +390,13 @@ footer {
 
 div#footer_content {
     padding: 3em 0 1em 3em;
-    width: 74%;
+    width: 77%;
     float: left;
     text-align: justify;
 }
 
 div#footer_logo {
-    padding: 3em;
+    padding: 3em 3em 3em 1em;
     float: right;
 }
 
