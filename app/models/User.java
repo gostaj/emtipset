@@ -12,6 +12,8 @@ import java.util.Date;
 @Table(name = "users")
 public class User extends GenericModel {
 
+    private static final Long RESULT_USER_ID = 0L;
+
     // Extending GenericModel so we can define the id field ourselves and use the DB sequence.
     @Id
     @SequenceGenerator(name="users_seq", sequenceName="users_id_seq", allocationSize=0)
@@ -23,6 +25,9 @@ public class User extends GenericModel {
 
     public String email;
 
+    @Column(name = "user_group")
+    public String group;
+
     @Required
     @Column(name = "social_user_id")
     public String socialUserId;
@@ -30,6 +35,9 @@ public class User extends GenericModel {
     @Required
     @Column(name = "social_provider")
     public String socialProvider;
+
+    @Column(name = "avatar_url")
+    public String avatarUrl;
 
     public int points;
 
@@ -53,8 +61,16 @@ public class User extends GenericModel {
         user.email = socialUser.email;
         user.socialUserId = socialUser.id.id;
         user.socialProvider = socialUser.id.provider.name();
+        user.avatarUrl = socialUser.avatarUrl;
 
         return user.save();
     }
 
+    public static User getResultUser() {
+        return findById(RESULT_USER_ID);
+    }
+
+    public boolean isResultUser() {
+        return (id.equals(RESULT_USER_ID));
+    }
 }
