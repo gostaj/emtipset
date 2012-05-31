@@ -279,11 +279,11 @@ div#instructions div#obs {
 }
 
 div#points {
-    visibility: hidden;
+    display: none;
     font-family: "YanoneKaffeesatzRegular";
     font-size: 30px;
     float: right;
-    margin: 1em 1em 0 0;
+    padding: 20px 25px 10px 0;
 }
 
 div#points span#userPoints {
@@ -293,16 +293,21 @@ div#points span#userPoints {
 
 div#to_bet {
     font-family: "YanoneKaffeesatzRegular";
-    font-size: 24px;
+    font-size: 30px;
     float: right;
-    margin: 1em 1em 0 0;
+    margin: 20px 25px 10px 0;
 }
 
 div#place {
     font-family: "YanoneKaffeesatzRegular";
     font-size: 24px;
     float: right;
-    margin: 1em 1em 0 0;
+    padding: 10px 25px 10px 0;
+}
+
+span#userPlace {
+    font-family: "YanoneKaffeesatzBold";
+    font-size: 30px;
 }
 
 div#groups {
