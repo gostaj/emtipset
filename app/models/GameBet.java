@@ -7,6 +7,7 @@ import play.db.jpa.GenericModel;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "game_bets")
@@ -78,5 +79,21 @@ public class GameBet extends GenericModel {
         return find("select g from GameBet g " +
                 "where g.gameId = ? " +
                 "and g.user = ? ", gameId, user).first();
+    }
+
+    public static List<GameBet> getByUser(User user) {
+        return find("byUser", user).fetch();
+    }
+
+    public static int deleteResults() {
+        return delete("user = ?", User.getResultUser());
+    }
+
+    public static int getPointsForUser(User user) {
+        return new Long(count("select count(*) from GameBet r, GameBet g " +
+                "where r.user = ? " +
+                "and g.user = ? " +
+                "and r.result = g.result " +
+                "and r.gameId = g.gameId", User.getResultUser(), user)).intValue();
     }
 }
