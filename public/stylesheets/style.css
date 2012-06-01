@@ -100,7 +100,6 @@ div#page {
 
 div#pagecontent {
     padding: 3%;
-    overflow: auto;
 }
 
 header[role="banner"] { 
@@ -172,6 +171,7 @@ div#main_content {
 }
 
 div#map {
+    display: none;
     position: relative;
     width: 100%;
 }

@@ -8,10 +8,13 @@ translate[1] = 600; //780
 xy.translate(translate);
 xy.scale(2100); //3500
 
+d3.select("div#map").style("display", "block");
+
 var countries = d3.select("div#map")
   .append("svg")
   .append("g")
     .attr("id", "countries");
+
 
 d3.json("public/javascripts/countryinfo.json", function(data) {
 
