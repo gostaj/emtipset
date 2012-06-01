@@ -300,6 +300,7 @@ div#to_bet {
 }
 
 div#place {
+    display: none;
     font-family: "YanoneKaffeesatzRegular";
     font-size: 24px;
     float: right;
