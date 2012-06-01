@@ -165,13 +165,11 @@ nav#mainnav img {
 nav#mainnav div#username { margin-top: 10px; }
 nav#mainnav div#login { margin-right: 10px; }
 
-div#main_content {
-    background-color: #fff;
-    margin-bottom: 12px;
+div[role="main"] {
+    display: none;
 }
 
 div#map {
-    display: none;
     position: relative;
     width: 100%;
 }
