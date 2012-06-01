@@ -100,6 +100,7 @@ div#page {
 
 div#pagecontent {
     padding: 3%;
+    overflow: auto;
 }
 
 header[role="banner"] { 
@@ -411,6 +412,7 @@ footer {
     background: #aaa;
     color: #fff;
     overflow: auto;
+    clear: both;
 }        
 
 div#footer_content {
