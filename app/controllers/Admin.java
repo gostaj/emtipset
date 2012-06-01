@@ -1,9 +1,11 @@
 package controllers;
 
+import controllers.securesocial.SecureSocial;
 import models.GameBet;
 import models.User;
 import play.Play;
 import play.mvc.Controller;
+import play.mvc.With;
 import securesocial.provider.SocialUser;
 
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-//@With( SecureSocial.class )
+@With( SecureSocial.class )
 public class Admin extends Controller {
 
     public static void adminPanel() {
@@ -24,7 +26,7 @@ public class Admin extends Controller {
     }
 
     public static void users() {
-        //makeSureUserIsAdmin();
+        makeSureUserIsAdmin();
 
         List<User> users = User.getAllIdSorted();
         for (User user : users) {
@@ -42,8 +44,7 @@ public class Admin extends Controller {
 
 
     public static void setUserGroup(Long userId, String group) {
-        System.out.println("UserId: " + userId + ", group: " + group);
-        //makeSureUserIsAdmin();
+        makeSureUserIsAdmin();
         User user = User.findById(userId);
         if (user != null) {
             user.group = group;
