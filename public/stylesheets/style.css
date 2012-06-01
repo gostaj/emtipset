@@ -292,6 +292,7 @@ div#points span#userPoints {
 }
 
 div#to_bet {
+    display: block;
     font-family: "YanoneKaffeesatzRegular";
     font-size: 30px;
     float: right;
@@ -303,6 +304,7 @@ div#place {
     font-size: 24px;
     float: right;
     padding: 10px 25px 10px 0;
+    clear: right;
 }
 
 span#userPlace {
