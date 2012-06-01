@@ -44,7 +44,6 @@ public class Admin extends Controller {
 
 
     public static void setUserGroup(Long userId, String group) {
-        System.out.println("UserId: " + userId + ", group: " + group);
         makeSureUserIsAdmin();
         User user = User.findById(userId);
         if (user != null) {

@@ -27,7 +27,7 @@ public class User extends GenericModel {
     public String email;
 
     @Column(name = "user_group")
-    public String group;
+    public String group = "brothas";
 
     @Required
     @Column(name = "social_user_id")

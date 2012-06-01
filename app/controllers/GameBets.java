@@ -46,6 +46,7 @@ public class GameBets extends Controller {
         GameBet.validateResult(result);
         GameBet.placeGameBet(gameId, user, result);
         Logger.info("Placed game bet for user " + user.id + " on game " + gameId + ": " + result);
+        renderText("SUCCESS");
     }
 
     private static User getLoggedInUser() throws EmtipsetException {
