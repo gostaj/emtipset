@@ -12,15 +12,23 @@ request.fail(function(jqXHR, textStatus) {
   alert( "Problem att kontakta servern (tippa), prova att tippa igen eller logga ut och in igen. \nFel: " + textStatus);
 });
 
+// Update the number of games the user has placed bets on
+var userBets = $(':radio:checked').length;
+$("#games_to_bet").text(userBets);
+
 }
 
 
 function getGameBets() {
 
 var request = $.getJSON('/gamebets', function(data) {
+  var userBets = 0;
   $.each(data, function(key, gameBet) {
     $("#game_" + gameBet.gameId + "_" + gameBet.result).attr("checked", "checked");
+    $("#game_" + gameBet.gameId + "_" + gameBet.result).closest("td").addClass("betPlaced");
+    userBets++;
   });
+  $("#games_to_bet").text(userBets);
 });
 
 request.fail(function(jqXHR, textStatus) {
@@ -49,7 +57,7 @@ var request = $.getJSON('/results', function(data) {
   $("#userPoints").text(userPoints);
   $("#maxPoints").text(maxPoints);
 
-});
+  });
 
 request.fail(function(jqXHR, textStatus) {
   alert( "Problem att kontakta servern (hämta resultat), prova att ladda om sidan eller logga ut och in igen. \nFel: " + textStatus);
@@ -58,5 +66,14 @@ request.fail(function(jqXHR, textStatus) {
 }
 
 function disableBetting() {
+
+  // Do not show the game bet counter
+  $("#to_bet").hide();
+
+  // Show the points counter and the place number status
+  $("#points").show();
+  $("#place").show();
+
+  // Disable the betting radio buttons
   $(':radio').attr('disabled',true);
 }
