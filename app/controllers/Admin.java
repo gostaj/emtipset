@@ -88,14 +88,14 @@ public class Admin extends Controller {
 
     static boolean hasTest1Started() {
         Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
-        tournamentStart.set(2012,Calendar.JUNE,30,21,50);
+        tournamentStart.set(2012,Calendar.JUNE,2,1,10);
         Calendar now = Calendar.getInstance();
         return now.after(tournamentStart);
     }
 
     static boolean hasTest2Started() {
         Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
-        tournamentStart.set(2012,Calendar.JUNE,1,22,30);
+        tournamentStart.set(2012,Calendar.JUNE,2,1,45);
         Calendar now = Calendar.getInstance();
         return now.after(tournamentStart);
     }
