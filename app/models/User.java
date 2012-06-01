@@ -44,6 +44,9 @@ public class User extends GenericModel {
 
     public Date created = new Date();
 
+    @Transient
+    public int betsPlaced;
+
     // Returns the EM-tipset user from the socialUser.
     // If no user is found, one is created that represents the socialUser.
     public static User getUser(SocialUser socialUser) throws EmtipsetException {
@@ -76,10 +79,14 @@ public class User extends GenericModel {
     }
 
     public static List<User> getUserGroupPointSorted(String group) {
-        return find("select u from User u where u.group = ? order by points desc", group).fetch();
+        return find("select u from User u where u.group = ? order by points desc, id asc", group).fetch();
     }
 
     public static List<User> getAllIdSorted() {
         return find("select u from User u order by id asc").fetch();
+    }
+
+    public static List<User> getAllPointSorted() {
+        return find("select u from User u order by points desc").fetch();
     }
 }

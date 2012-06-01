@@ -27,8 +27,19 @@ public class Admin extends Controller {
         makeSureUserIsAdmin();
 
         List<User> users = User.getAllIdSorted();
+        for (User user : users) {
+            user.betsPlaced = GameBet.getNumberOfBetsPlaced(user);
+        }
         render(users);
     }
+
+    public static void topList() {
+        makeSureUserIsAdmin();
+
+        List<User> users = User.getAllPointSorted();
+        render(users);
+    }
+
 
     public static void setUserGroup(Long userId, String group) {
         System.out.println("UserId: " + userId + ", group: " + group);

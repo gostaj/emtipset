@@ -96,4 +96,8 @@ public class GameBet extends GenericModel {
                 "and r.result = g.result " +
                 "and r.gameId = g.gameId", User.getResultUser(), user)).intValue();
     }
+
+    public static int getNumberOfBetsPlaced(User user) {
+        return new Long(GameBet.count("user = ?", user)).intValue();
+    }
 }

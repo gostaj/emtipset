@@ -22,6 +22,7 @@ GET     /admin/users            Admin.users
 POST    /admin/setUserGroup     Admin.setUserGroup
 GET     /admin/deleteResults    Admin.deleteResults
 GET     /admin/sumPoints        Admin.sumPoints
+GET     /admin/topList          Admin.topList
 
 # Does this work?
 GET /favicon.ico staticFile:/public/images/favicon.png
