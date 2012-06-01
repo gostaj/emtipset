@@ -12,6 +12,10 @@ request.fail(function(jqXHR, textStatus) {
   alert( "Problem att kontakta servern (tippa), prova att tippa igen eller logga ut och in igen. \nFel: " + textStatus);
 });
 
+// Update the betPlaced class
+$("[id^=game_" + gameId + "_]").closest("td").removeClass("betPlaced");
+$("#game_" + gameId + "_" + result).closest("td").addClass("betPlaced");
+
 // Update the number of games the user has placed bets on
 var userBets = $(':radio:checked').length;
 $("#games_to_bet").text(userBets);
