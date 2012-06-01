@@ -16,7 +16,7 @@ public class Application extends Controller {
 
     public static void index(boolean disableAutoLogin) {
         if (disableAutoLogin) {
-            SecuredController.makeUserUserIsLoggedIn();
+            SecuredController.makeSureUserIsLoggedIn();
             render();
         } else {
             SocialUser user = getSocialUser();
@@ -31,7 +31,7 @@ public class Application extends Controller {
 
     static SocialUser getSocialUser() {
         if (Play.mode.isProd()) {
-            SecuredController.makeUserUserIsLoggedIn();
+            SecuredController.makeSureUserIsLoggedIn();
             return SecureSocial.getCurrentUser();
         } else {
             return MockFactory.getMockedSocialUser();
