@@ -383,12 +383,16 @@ td.bet {
     margin: 0;
 }
 
+td.bet.betPlaced {
+    background-color: #cfcfcf;
+}
+
 td.bet.right {
-    background-color: rgba(0,255,0,0.3);
+    background-color: #b2feb2;
 }
 
 td.bet.wrong {
-    background-color: rgba(255,0,0,0.3);
+    background-color: #feb2b2;
 }
 
 td.teams > p {
