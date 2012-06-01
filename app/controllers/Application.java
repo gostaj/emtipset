@@ -37,11 +37,10 @@ public class Application extends Controller {
         }
     }
 
-
     // The tournament starts the 8th of June 18:00 CET
     static boolean hasTournamentStarted() {
         Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
-        tournamentStart.set(2012, Calendar.JUNE, 8, 17, 59);
+        tournamentStart.set(2012, Calendar.JUNE, 8, 18, 00);
         Calendar now = Calendar.getInstance();
         return now.after(tournamentStart);
     }
