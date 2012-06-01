@@ -26,8 +26,21 @@ public class Admin extends Controller {
     public static void users() {
         makeSureUserIsAdmin();
 
-        List<User> users = User.findAll();
+        List<User> users = User.getAllIdSorted();
         render(users);
+    }
+
+    public static void setUserGroup(Long userId, String group) {
+        System.out.println("UserId: " + userId + ", group: " + group);
+        makeSureUserIsAdmin();
+        User user = User.findById(userId);
+        if (user != null) {
+            user.group = group;
+            user.save();
+            users();
+        } else {
+            error("User with given id not found!");
+        }
     }
 
     public static void deleteResults() {
@@ -63,14 +76,14 @@ public class Admin extends Controller {
 
     static boolean hasTest1Started() {
         Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
-        tournamentStart.set(2012,Calendar.MAY,30,20,59);
+        tournamentStart.set(2012,Calendar.JUNE,30,21,50);
         Calendar now = Calendar.getInstance();
         return now.after(tournamentStart);
     }
 
     static boolean hasTest2Started() {
         Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
-        tournamentStart.set(2012,Calendar.MAY,30,19,59);
+        tournamentStart.set(2012,Calendar.JUNE,1,22,30);
         Calendar now = Calendar.getInstance();
         return now.after(tournamentStart);
     }

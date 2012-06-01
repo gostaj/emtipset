@@ -12,3 +12,16 @@
         #{/list}
     </table>
 </div>
+<br/><br/>
+<div>
+    <b>Set group of user</b><br/>
+    #{form @Admin.setUserGroup()}
+    <label for="userId">User id</label>
+    <input id="userId" name="userId" type="text" size="5"/>
+
+    <label for="group">Group</label>
+    <input id="group" name="group" type="text" size="20"/>
+
+    <input type="submit" value="Set group"/>
+    #{/form}
+</div>
