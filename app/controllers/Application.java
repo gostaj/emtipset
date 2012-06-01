@@ -5,18 +5,18 @@ import mocks.MockFactory;
 import models.User;
 import play.Play;
 import play.mvc.Controller;
+import play.mvc.With;
 import securesocial.provider.SocialUser;
 
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-//@With( SecureSocial.class )
+@With( SecureSocial.class )
 public class Application extends Controller {
 
     public static void index(boolean disableAutoLogin) {
         if (disableAutoLogin) {
-            SecuredController.makeSureUserIsLoggedIn();
             render();
         } else {
             SocialUser user = getSocialUser();
@@ -31,7 +31,6 @@ public class Application extends Controller {
 
     static SocialUser getSocialUser() {
         if (Play.mode.isProd()) {
-            SecuredController.makeSureUserIsLoggedIn();
             return SecureSocial.getCurrentUser();
         } else {
             return MockFactory.getMockedSocialUser();

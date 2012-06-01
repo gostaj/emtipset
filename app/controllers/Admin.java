@@ -1,9 +1,11 @@
 package controllers;
 
+import controllers.securesocial.SecureSocial;
 import models.GameBet;
 import models.User;
 import play.Play;
 import play.mvc.Controller;
+import play.mvc.With;
 import securesocial.provider.SocialUser;
 
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-//@With( SecureSocial.class )
+@With( SecureSocial.class )
 public class Admin extends Controller {
 
     public static void adminPanel() {

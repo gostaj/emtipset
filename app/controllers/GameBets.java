@@ -2,11 +2,13 @@ package controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import controllers.securesocial.SecureSocial;
 import exceptions.EmtipsetException;
 import models.GameBet;
 import models.User;
 import play.Logger;
 import play.mvc.Controller;
+import play.mvc.With;
 import securesocial.provider.SocialUser;
 
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.List;
 /**
  *  http://www.playframework.org/documentation/1.2.4/jpa
  */
-//@With( SecureSocial.class )
+@With( SecureSocial.class )
 public class GameBets extends Controller {
 
     public static Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
