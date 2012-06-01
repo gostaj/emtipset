@@ -7,6 +7,7 @@ import securesocial.provider.SocialUser;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -72,5 +73,13 @@ public class User extends GenericModel {
 
     public boolean isResultUser() {
         return (id.equals(RESULT_USER_ID));
+    }
+
+    public static List<User> getUserGroupPointSorted(String group) {
+        return find("select u from User u where u.group = ? order by points desc", group).fetch();
+    }
+
+    public static List<User> getAllIdSorted() {
+        return find("select u from User u order by id asc").fetch();
     }
 }

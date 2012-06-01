@@ -8,16 +8,16 @@
    <div id="obs">&Auml;r du os&auml;ker kanske kartan kan vara till hj&auml;lp. Obs! Din tippning sparas automatiskt (så därför finns ingen spara-knapp).</div>
 </div>
 
-<div id="points">
-    <span id="label">Poäng: </span><span id="userPoints">${emUser.points}</span>/<span id="maxPoints">0</span> (50)
-</div>
-
 <div id="to_bet">
     <span class="label">Du har tippat </span><span id="games_to_bet">0</span> av <span id="total_games">24</span> matcher
 </div>
 
+<div id="points">
+    <span id="label">Poäng: </span><span id="userPoints">0</span>/<span id="maxPoints">0</span> (50)
+</div>
+
 <div id="place">
-    <span class="label">Plats </span><span id="userPlace">1</span> av <span id="usersNum">10</span>
+    <span class="label">Plats #</span><span id="userPlace">${userPlaceInGroup}</span> av <span id="usersNum">${usersInGroup}</span>
 </div>
 
 
@@ -259,8 +259,9 @@
     // Populate the radio buttons above
     getGameBets();
 
-    // Remove!
-    getResults();
+    // Remove both!
+    //getResults();
+    //disableBetting();
 
     %{ if (hasTournamentStarted) {
   }%
