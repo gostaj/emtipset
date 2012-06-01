@@ -19,6 +19,7 @@ GET     /results    Results.list
 
 GET     /admin                  Admin.adminPanel
 GET     /admin/users            Admin.users
+POST    /admin/setUserGroup     Admin.setUserGroup
 GET     /admin/deleteResults    Admin.deleteResults
 GET     /admin/sumPoints        Admin.sumPoints
 
