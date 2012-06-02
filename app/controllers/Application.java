@@ -31,10 +31,19 @@ public class Application extends Controller {
 
     static SocialUser getSocialUser() {
         if (Play.mode.isProd()) {
-            return SecureSocial.getCurrentUser();
+            SocialUser socialUser = SecureSocial.getCurrentUser();
+            socialUser.avatarUrl = enforceHttpsUrl(socialUser.avatarUrl);
+            return socialUser;
         } else {
             return MockFactory.getMockedSocialUser();
         }
+    }
+
+    private static String enforceHttpsUrl(String url) {
+        if (url.toLowerCase().startsWith("http:")) {
+            return "https" + url.substring(4);
+        }
+        return url;
     }
 
     // The tournament starts the 8th of June 18:00 CET
