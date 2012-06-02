@@ -2,19 +2,33 @@ var xy = d3.geo.mercator(),
     path = d3.geo.path().projection(xy);
 
 var translate = xy.translate();
-translate[0] = 600; //500
-translate[1] = 600; //780
+translate[0] = 635;
+translate[1] = 620;
  
 xy.translate(translate);
-xy.scale(2100); //3500
+xy.scale(2200); 
 
 d3.select('div[role="main"]').style("display", "block");
 
 var countries = d3.select("div#map")
   .append("svg")
+    .attr("id", "map")
+    .attr("width", "960") 
+    .attr("height", "400")
+    .attr("viewBox", "0 0 960 400")
+    .attr("preserveAspectRatio", "xMidYMid") 
   .append("g")
     .attr("id", "countries");
 
+var chart = $("svg#map"),
+    aspect = chart.width() / chart.height(),
+    container = chart.parent();
+
+$(window).resize(function() {
+    var targetWidth = container.width();
+    chart.attr("width", targetWidth);
+    chart.attr("height", Math.round(targetWidth / aspect));
+}).trigger("resize");
 
 d3.json("public/javascripts/countryinfo.json", function(data) {
 
