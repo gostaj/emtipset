@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-//@With( SecureSocial.class )
+@With( SecureSocial.class )
 public class Application extends Controller {
 
     public static void index(boolean disableAutoLogin) {
