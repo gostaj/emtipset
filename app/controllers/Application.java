@@ -25,7 +25,8 @@ public class Application extends Controller {
             List<User> groupUsers = User.getUserGroupPointSorted(emUser.group);
             int userPlaceInGroup = groupUsers.indexOf(emUser) + 1; // +1 since index is zero-based
             int usersInGroup = groupUsers.size();
-            render(user, emUser, hasTournamentStarted, userPlaceInGroup, usersInGroup);
+            long secondsUntilTournamentStart = getSecondsUntilTournamentStart();
+            render(user, emUser, hasTournamentStarted, userPlaceInGroup, usersInGroup, secondsUntilTournamentStart);
         }
     }
 
@@ -46,12 +47,24 @@ public class Application extends Controller {
         return url;
     }
 
-    // The tournament starts the 8th of June 18:00 CET
     static boolean hasTournamentStarted() {
-        Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
-        tournamentStart.set(2012, Calendar.JUNE, 8, 18, 00);
+        Calendar tournamentStart = getTournamentStartCal();
         Calendar now = Calendar.getInstance();
         return now.after(tournamentStart);
     }
+
+    // The tournament starts the 8th of June 18:00 CET
+    private static Calendar getTournamentStartCal() {
+        Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
+        tournamentStart.set(2012, Calendar.JUNE, 8, 18, 00);
+        return tournamentStart;
+    }
+
+    private static long getSecondsUntilTournamentStart() {
+        Calendar tournamentStart = getTournamentStartCal();
+        return (tournamentStart.getTimeInMillis() -
+                Calendar.getInstance().getTimeInMillis())/1000;
+    }
+
 
 }

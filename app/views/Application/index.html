@@ -1,6 +1,8 @@
 #{extends 'main.html'/}
 #{set 'moreScripts'}
   #{script 'serverCommunication.js'/}
+  #{script 'jquery.countdown.pack.js'/}
+  #{script 'jquery.countdown-sv.js'/}
 #{/set}
 
 <div id="instructions">
@@ -273,6 +275,10 @@
     getResults();
     // Disable the possibility to bet
     disableBetting();
+  %{
+     } else {
+  }%
+    $("#bettingtimer").countdown({until: +${secondsUntilTournamentStart}, layout:'{d<}{dn} {dl}, {d>}{h<}{hn} {hl}, {h>}{m<}{mn} {ml} och {m>}{sn} {sl}'});
   %{
      }
   }%
