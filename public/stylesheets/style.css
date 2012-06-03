@@ -306,7 +306,7 @@ div#countdown {
 }
 
 div#countdown span#bettingtimer {
-    font-weight: bold;
+    font-family: "YanoneKaffeesatzRegular";
 }
 
 div#place {
@@ -323,7 +323,40 @@ span#userPlace {
     font-size: 30px;
 }
 
-div#groups {
+div#tabs > ul {
+    list-style: none;
+    clear: both;
+    padding: 0;
+}
+
+div#tabs > ul > li {
+    float: left;
+    margin: 2% 1% 0 1%;
+    padding: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    font-family: "YanoneKaffeesatzBold";
+    font-size: 20px;
+    color: #bbb;
+}
+
+div#tabs > ul > li > a {
+    color: #333;
+    border: 0;
+}
+
+div#tabs > ul > li > a.disabled {
+    color: #bbb;
+    pointer-events: none;
+    cursor: default;
+}
+
+div#tabs > ul > li.active {
+    border: 2px solid #1899cb;
+}
+
+div#groups, div#finals {
     clear: both;
     padding: 1em 0;
 }

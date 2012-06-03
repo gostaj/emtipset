@@ -3,6 +3,7 @@
   #{script 'serverCommunication.js'/}
   #{script 'jquery.countdown.pack.js'/}
   #{script 'jquery.countdown-sv.js'/}
+  #{script 'jquery.tabify.js' /}
 #{/set}
 
 <div id="instructions">
@@ -11,7 +12,7 @@
 </div>
 
 <div id="to_bet">
-    <span class="label">Du har tippat </span><span id="games_to_bet">0</span> av <span id="total_games">24</span> matcher
+    <span class="label">Matcher kvar att tippa: </span><span id="games_to_bet">0</span> 
 </div>
 
 <div id="countdown">
@@ -26,6 +27,11 @@
     <span class="label">Plats #</span><span id="userPlace">${userPlaceInGroup}</span> av <span id="usersNum">${usersInGroup}</span>
 </div>
 
+<div id="tabs">
+    <ul id="menu">
+        <li class="active"><a href="#groups">Gruppspel</a></li>
+        <li><a class="disabled" href="#finals">Slutspel</a></li>
+    </ul>
 
 <div id="groups">
     <div class="group">
@@ -261,6 +267,12 @@
     </div>
 </div>
 
+<div id="finals">
+   <p>Slutspelet har inte startat än. Var vänlig återkom senare.</p> 
+</div>
+
+</div>
+
 <script type="text/javascript">
     // Populate the radio buttons above
     getGameBets();
@@ -282,5 +294,10 @@
   %{
      }
   }%
+
+    //Create tabs for navigation
+   $('#menu').tabify();
+   //Disable unwanted tabs
+   $('a.disabled').click(function() { return false; });
 
 </script>
