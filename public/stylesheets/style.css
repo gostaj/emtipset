@@ -294,7 +294,19 @@ div#to_bet {
     font-family: "YanoneKaffeesatzRegular";
     font-size: 30px;
     float: right;
-    margin: 20px 25px 10px 0;
+    margin: 20px 10px 10px 0;
+}
+
+div#countdown {
+    display: block;
+    font-family: "YanoneKaffeesatzThin";
+    font-size: 18px;
+    float: right;
+    margin: 10px;
+}
+
+div#countdown span#bettingtimer {
+    font-weight: bold;
 }
 
 div#place {
