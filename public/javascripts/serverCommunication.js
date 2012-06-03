@@ -15,7 +15,7 @@ var request = $.ajax({
     $("#game_" + gameId + "_" + result).closest("td").addClass("betPlaced");
 
     // Update the number of games the user has placed bets on
-    var userBets = $(':radio:checked').length;
+    var userBets = 24 - $(':radio:checked').length;
     $("#games_to_bet").text(userBets);
   } else {
     $("#game_" + gameId + "_" + result).removeAttr("checked");
