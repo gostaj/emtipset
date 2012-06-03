@@ -460,18 +460,24 @@ footer {
 }        
 
 div#footer_content {
-    padding: 3em 0 1em 3em;
-    width: 77%;
+    padding: 3em 3em 1em 3em;
     float: left;
     text-align: justify;
 }
 
-div#footer_logo {
-    padding: 3em 3em 3em 1em;
+div#footer_content div.standout {
+    font-weight: bold;
+}
+
+div#footer_content div.standout ul {
+}
+
+p#footer_logo {
+    padding: 3em 0 3em 2em;
     float: right;
 }
 
-div#footer_logo img {
+p#footer_logo img {
     width: 100px;
 }
 
