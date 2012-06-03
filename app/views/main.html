@@ -26,6 +26,10 @@
         })();
 
     </script>
+
+    <!-- Fix Facebook redirect bug -->
+    <script type="text/javascript">if (window.location.hash == '#_=_')window.location.hash = '';</script>
+
     #{get 'moreScripts' /}
 </head>
 <body>
