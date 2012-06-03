@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-//@With( SecureSocial.class )
+@With( SecureSocial.class )
 public class Application extends Controller {
 
     public static void index(boolean disableAutoLogin) {
@@ -21,11 +21,16 @@ public class Application extends Controller {
         } else {
             SocialUser user = getSocialUser();
             User emUser = User.getUser(user);
+            emUser.updateUserFromSocialUser(user);
+
             boolean hasTournamentStarted = hasTournamentStarted();
+
             List<User> groupUsers = User.getUserGroupPointSorted(emUser.group);
             int userPlaceInGroup = groupUsers.indexOf(emUser) + 1; // +1 since index is zero-based
             int usersInGroup = groupUsers.size();
+
             long secondsUntilTournamentStart = getSecondsUntilTournamentStart();
+
             render(user, emUser, hasTournamentStarted, userPlaceInGroup, usersInGroup, secondsUntilTournamentStart);
         }
     }
@@ -57,6 +62,13 @@ public class Application extends Controller {
     private static Calendar getTournamentStartCal() {
         Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
         tournamentStart.set(2012, Calendar.JUNE, 8, 18, 00);
+        return tournamentStart;
+    }
+
+    // The knock out phase starts the 21th of June 20:45 CET
+    private static Calendar getKnockOutPhaseStartCal() {
+        Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
+        tournamentStart.set(2012, Calendar.JUNE, 21, 20, 45);
         return tournamentStart;
     }
 

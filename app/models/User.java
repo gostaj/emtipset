@@ -89,4 +89,9 @@ public class User extends GenericModel {
     public static List<User> getAllPointSorted() {
         return find("select u from User u order by points desc").fetch();
     }
+
+    public void updateUserFromSocialUser(SocialUser socialUser) {
+        avatarUrl = socialUser.avatarUrl;
+        save();
+    }
 }
