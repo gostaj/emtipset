@@ -79,8 +79,9 @@ request.fail(function(jqXHR, textStatus) {
 
 function disableBetting() {
 
-  // Do not show the game bet counter
+  // Do not show the game bet counter or the countdown
   $("#to_bet").hide();
+  $("#countdown").hide();
 
   // Show the points counter and the place number status
   $("#points").show();
