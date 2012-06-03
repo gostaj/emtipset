@@ -34,11 +34,11 @@ request.fail(function(jqXHR, textStatus) {
 function getGameBets() {
 
 var request = $.getJSON('/gamebets', function(data) {
-  var userBets = 0;
+  var userBets = 24; // Number of group games
   $.each(data, function(key, gameBet) {
     $("#game_" + gameBet.gameId + "_" + gameBet.result).attr("checked", "checked");
     $("#game_" + gameBet.gameId + "_" + gameBet.result).closest("td").addClass("betPlaced");
-    userBets++;
+    userBets--;
   });
   $("#games_to_bet").text(userBets);
 });
