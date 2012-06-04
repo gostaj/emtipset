@@ -46,7 +46,7 @@ public class Application extends Controller {
     }
 
     private static String enforceHttpsUrl(String url) {
-        if (url.toLowerCase().startsWith("http:")) {
+        if (url != null && url.toLowerCase().startsWith("http:")) {
             return "https" + url.substring(4);
         }
         return url;
