@@ -277,17 +277,37 @@ div#instructions div#obs {
     margin-top: 7px;
 }
 
-div#points {
+div#standings {
     display: none;
+    float: right;
+    margin: 5px 10px 0 0;
+    background-color: #ddd;
+    border-radius: 0.5em;
+}
+
+div#points {
     font-family: "YanoneKaffeesatzRegular";
     font-size: 30px;
-    float: right;
-    padding: 20px 25px 10px 0;
+    float: left;
+    padding: 15px;
+    border-right: 2px solid white;
 }
 
 div#points span#userPoints {
     font-family: "YanoneKaffeesatzBold";
     font-size: 40px;
+}
+
+div#place {
+    font-family: "YanoneKaffeesatzRegular";
+    font-size: 24px;
+    float: left;
+    padding: 15px;
+}
+
+div#place span#userPlace {
+    font-family: "YanoneKaffeesatzBold";
+    font-size: 30px;
 }
 
 div#to_bet {
@@ -310,23 +330,9 @@ div#countdown span#bettingtimer {
     font-family: "YanoneKaffeesatzRegular";
 }
 
-div#place {
-    display: none;
-    font-family: "YanoneKaffeesatzRegular";
-    font-size: 24px;
-    float: right;
-    padding: 10px 25px 10px 0;
-    clear: right;
-}
-
-span#userPlace {
-    font-family: "YanoneKaffeesatzBold";
-    font-size: 30px;
-}
-
 div#tabs > ul {
     list-style: none;
-    clear: both;
+    clear: left;
     padding: 0;
 }
 
