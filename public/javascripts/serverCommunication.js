@@ -84,6 +84,7 @@ function disableBetting() {
   $("#countdown").hide();
 
   // Show the points counter and the place number status
+  $("#standings").show();
   $("#points").show();
   $("#place").show();
 
