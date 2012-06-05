@@ -87,11 +87,19 @@ public class User extends GenericModel {
     }
 
     public static List<User> getAllPointSorted() {
-        return find("select u from User u order by points desc").fetch();
+        return find("select u from User u order by group, points desc, id").fetch();
     }
 
     public void updateUserFromSocialUser(SocialUser socialUser) {
         avatarUrl = socialUser.avatarUrl;
         save();
+    }
+
+    public static int getUserPlaceInGroup(User emUser) {
+        return new Long(User.count("points > ? and group = ?", emUser.points, emUser.group) + 1).intValue();
+    }
+
+    public static int getUserCountInUserGroup(String group) {
+        return new Long(User.count("group = ?", group)).intValue();
     }
 }
