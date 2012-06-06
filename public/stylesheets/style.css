@@ -395,13 +395,13 @@ div.group_header {
     width: 19%;
 }
 
-div.group_header#A { background: #e41a1c; }
+div#A div.group_header { background: #e41a1c; }
 
-div.group_header#B { background: #377eb8; }
+div#B div.group_header { background: #377eb8; }
 
-div.group_header#C { background: #4daf4a; }
+div#C div.group_header { background: #4daf4a; }
 
-div.group_header#D { background: #984EA3; }
+div#D div.group_header { background: #984ea3; }
 
 div.group_table {
     display: table-cell;
@@ -420,17 +420,10 @@ td.date {
     font-size: 10px;
 }
 
-td.teams {
-}
-
 td.date, td.teams, td.bet, td.result {
     border: 2px solid white;
     border-radius: 0.7em;
     vertical-align: middle;
-}
-
-td.score {
-    width: 11%:
 }
 
 td.bet { 
@@ -451,9 +444,64 @@ td.bet.wrong {
     background-color: #feb2b2;
 }
 
-td.teams > p {
+td.teams > a {
+    margin: 0;
+    border: 0;
+}
+
+td.teams > a:hover {
+    color: #000; 
+}
+
+div.userbets {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 3px;
+    top: 0;
+    left: 0;
+    padding: 0;
     margin: 0;
 }
+
+div.userbets div.part_1 {
+    position: absolute;
+    width: 33%;
+    height: 3px;
+    left: 0;
+    z-index: 1;
+}
+
+div#A div.part_1 { background-color: rgba(228,26,28,0.2); }
+div#B div.part_1 { background-color: rgba(55,126,184,0.2); }
+div#C div.part_1 { background-color: rgba(77,175,74,0.2); }
+div#D div.part_1 { background-color: rgba(152,78,163,0.2); }
+
+div.userbets div.part_X {
+    position: absolute;
+    width: 33%;
+    height: 3px;
+    left: 33%;
+    z-index: 1;
+}
+
+div#A div.part_X { background-color: rgba(228,26,28,0.6); }
+div#B div.part_X { background-color: rgba(55,126,184,0.6); }
+div#C div.part_X { background-color: rgba(77,175,74,0.6); }
+div#D div.part_X { background-color: rgba(152,78,163,0.6); }
+
+div.userbets div.part_2 {
+    position: relative;
+    width: 33%;
+    height: 3px;
+    left: 66%;
+    z-index: 1;
+}
+
+div#A div.part_2 { background-color: rgba(228,26,28,1); }
+div#B div.part_2 { background-color: rgba(55,126,184,1); }
+div#C div.part_2 { background-color: rgba(77,175,74,1); }
+div#D div.part_2 { background-color: rgba(152,78,163,1); }
 
 input[type="radio"] {
     margin: 4px;
