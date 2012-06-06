@@ -9,7 +9,6 @@ import play.mvc.With;
 import securesocial.provider.SocialUser;
 
 import java.util.Calendar;
-import java.util.List;
 import java.util.TimeZone;
 
 @With( SecureSocial.class )
@@ -25,9 +24,8 @@ public class Application extends Controller {
 
             boolean hasTournamentStarted = hasTournamentStarted();
 
-            List<User> groupUsers = User.getUserGroupPointSorted(emUser.group);
-            int userPlaceInGroup = groupUsers.indexOf(emUser) + 1; // +1 since index is zero-based
-            int usersInGroup = groupUsers.size();
+            int userPlaceInGroup = User.getUserPlaceInGroup(emUser);
+            int usersInGroup = User.getUserCountInUserGroup(emUser.group);
 
             long secondsUntilTournamentStart = getSecondsUntilTournamentStart();
 

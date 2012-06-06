@@ -398,11 +398,9 @@
     // Populate the radio buttons above
     getGameBets();
 
-    // Remove both!
-    //getResults();
-    //disableBetting();
+    // hasTournamentStarted: ${hasTournamentStarted}
 
-    %{ if (hasTournamentStarted) {
+    %{ if (hasTournamentStarted && emUser.id > 0) {
   }%
     // Mark bets as right or wrong and sum the points
     getResults();
