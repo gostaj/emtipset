@@ -11,7 +11,7 @@ import securesocial.provider.SocialUser;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-@With( SecureSocial.class )
+//@With( SecureSocial.class )
 public class Application extends Controller {
 
     public static void index(boolean disableAutoLogin) {
