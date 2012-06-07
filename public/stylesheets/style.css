@@ -133,6 +133,19 @@ header[role="banner"] p#logo {
     margin-bottom: 0.5em;
 }
 
+div#gotIE {
+    clear: both;
+    font-weight: bold;
+    width: 90%;
+    padding: 5px;
+    background-color: #ddd;
+    color: #000;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
 nav#mainnav {
     float: right;
     margin-top: 10px;
