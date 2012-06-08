@@ -91,3 +91,27 @@ function disableBetting() {
   // Disable the betting radio buttons
   $(':radio').attr('disabled',true);
 }
+
+function getGroupGameBets() {
+
+var request = $.getJSON('/groupGamebets', function(data) {
+  $.each(data, function(key, gameBet) {
+    var totalPercent = 0;
+
+    $("#game_" + gameBet.gameId + "_bets > .part_1").width(gameBet.result1 + "%").css('left', totalPercent + "%");
+    totalPercent += gameBet.result1;
+
+    $("#game_" + gameBet.gameId + "_bets > .part_X").width(gameBet.resultX + "%").css('left', totalPercent + "%");
+    totalPercent += gameBet.resultX;
+
+    $("#game_" + gameBet.gameId + "_bets > .part_2").width(gameBet.result2 + "%").css('left', totalPercent + "%");
+  });
+
+  $("div.userbets").css('display', 'block');
+});
+
+request.fail(function(jqXHR, textStatus) {
+  alert( "Problem att kontakta servern (hämta tippstatistik), prova att ladda om sidan eller logga ut och in igen. \nFel: " + textStatus);
+});
+
+}

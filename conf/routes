@@ -8,7 +8,8 @@
 GET     /           Application.index
 
 # Shows the bets the current logged in user have made
-GET     /gamebets   GameBets.list
+GET     /gamebets       GameBets.listUserBets
+GET     /groupGamebets  GameBets.listGroupBets
 
 # Places a bet for the current logged in user
 POST    /gamebet    GameBets.create

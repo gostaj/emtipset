@@ -100,4 +100,10 @@ public class GameBet extends GenericModel {
     public static int getNumberOfBetsPlaced(User user) {
         return new Long(GameBet.count("user = ?", user)).intValue();
     }
+
+    public static List<GameBet> getGroupBets(String group) {
+        return find("select gb from GameBet gb, User u " +
+                "where u.group = ? " +
+                "and gb.user = u", group).fetch();
+    }
 }
