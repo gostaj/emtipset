@@ -14,14 +14,20 @@
 </div>
 <br/><br/>
 <div>
-    <b>Set group of user</b><br/>
-    #{form @Admin.setUserGroup()}
-    <label for="userId">User id</label>
-    <input id="userId" name="userId" type="text" size="5"/>
+    <b>Change user</b> (only fields with text are changed)<br/>
+    #{form @Admin.changeUser()}
+    <label for="userId">User id:</label>
+    <input id="userId" name="userId" type="text" size="3"/>
 
-    <label for="group">Group</label>
+    <label for="group">Group:</label>
     <input id="group" name="group" type="text" size="20"/>
 
-    <input type="submit" value="Set group"/>
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text" size="20"/>
+    <br/>
+    <label for="avatarUrl">Avatar URL:</label>
+    <input id="avatarUrl" name="avatarUrl" type="text" size="62"/>
+    <br/>
+    <input type="submit" value="Change user"/>
     #{/form}
 </div>

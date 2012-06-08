@@ -39,16 +39,28 @@ public class Admin extends Controller {
     }
 
 
-    public static void setUserGroup(Long userId, String group) {
+    public static void changeUser(Long userId, String group, String name, String avatarUrl) {
         makeSureUserIsAdmin();
         User user = User.findById(userId);
         if (user != null) {
-            user.group = group;
-            user.save();
+            updateUserIfNotEmptyInfo(user, group, name, avatarUrl);
             users();
         } else {
             error("User with given id not found!");
         }
+    }
+
+    private static void updateUserIfNotEmptyInfo(User user, String group, String name, String avatarUrl) {
+        if (group != null && !group.isEmpty()) {
+            user.group = group;
+        }
+        if (name != null && !name.isEmpty()) {
+            user.name = name;
+        }
+        if (avatarUrl != null && !avatarUrl.isEmpty()) {
+            user.avatarUrl = avatarUrl;
+        }
+        user.save();
     }
 
     public static void deleteResults() {
