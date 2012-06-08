@@ -11,7 +11,7 @@ import securesocial.provider.SocialUser;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-//@With( SecureSocial.class )
+@With( SecureSocial.class )
 public class Application extends Controller {
 
     public static void index(boolean disableAutoLogin) {
@@ -35,19 +35,10 @@ public class Application extends Controller {
 
     static SocialUser getSocialUser() {
         if (Play.mode.isProd()) {
-            SocialUser socialUser = SecureSocial.getCurrentUser();
-            socialUser.avatarUrl = enforceHttpsUrl(socialUser.avatarUrl);
-            return socialUser;
+            return SecureSocial.getCurrentUser();
         } else {
             return MockFactory.getMockedSocialUser();
         }
-    }
-
-    private static String enforceHttpsUrl(String url) {
-        if (url != null && url.toLowerCase().startsWith("http:")) {
-            return "https" + url.substring(4);
-        }
-        return url;
     }
 
     static boolean hasTournamentStarted() {
