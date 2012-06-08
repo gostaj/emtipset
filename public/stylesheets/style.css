@@ -293,7 +293,7 @@ div#instructions div#obs {
 div#standings {
     display: none;
     float: right;
-    margin: 5px 10px 0 0;
+    margin: 15px 10px 0 0;
     background-color: #ddd;
     border-radius: 0.5em;
 }
@@ -349,7 +349,7 @@ div#tabs > ul {
     padding: 0;
 }
 
-div#tabs > ul > li {
+div#tabs > ul > li > a {
     float: left;
     margin: 2% 1% 0 0%;
     padding: 10px;
@@ -358,12 +358,11 @@ div#tabs > ul > li {
     border: 2px solid #fff;
     font-family: "YanoneKaffeesatzBold";
     font-size: 20px;
-    color: #bbb;
+    color: #333;
 }
 
-div#tabs > ul > li > a {
-    color: #333;
-    border: 0;
+div#tabs > ul > li > a:hover {
+    border: 2px solid #8ccce5;
 }
 
 div#tabs > ul > li > a.disabled {
@@ -372,11 +371,11 @@ div#tabs > ul > li > a.disabled {
     cursor: default;
 }
 
-div#tabs > ul > li.active {
+div#tabs > ul > li.active > a {
     border: 2px solid #1899cb;
 }
 
-div#groups, div#finals {
+div#groups, div#knockout, div#toplist {
     clear: both;
     padding: 1em 0 0 0;
     overflow: hidden;
@@ -428,7 +427,7 @@ div.group_table {
 table { border:0; margin: 0; border-collapse:collapse; }
 
 td { border: 0; }
-td.header { border: 0; margin: 0; padding: 0; text-align: center;}
+th { border: 0; margin: 0; padding: 0; text-align: center; font-weight: normal;}
 td.date {
     font-size: 10px;
 }
@@ -518,6 +517,69 @@ div#D div.part_2 { background-color: rgba(152,78,163,1); }
 
 input[type="radio"] {
     margin: 4px;
+}
+
+div#finals {
+    display: table;
+    width: 100%;
+    padding: 5px;
+}
+
+div#knockout_instructions {
+    float: left;
+    font-family: "YanoneKaffeesatzThin";
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+div#quarterfinals, div#semifinals, div#final, div#winner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div#finals th {
+    font-family: "YanoneKaffeesatzRegular";
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+div#finals th.num {
+    width: 30px;
+    border-right: 3px solid #fff;
+}
+
+table span.group_letter {
+    font-family: "YanoneKaffeesatzRegular";
+    font-size: 20px;
+    color: #eee;
+    margin-right: 15px;
+}
+
+div#finals td {
+    padding: 5px 15px 5px 5px;
+}
+
+tr.quarterfinal, tr.semifinal, tr.final {
+    background-color: #fff;
+    border: 10px solid #eee;
+}
+
+tr.quarterfinal a, tr.semifinal a, tr.final a, tr.winner a {
+    outline: 0;
+}
+
+tr.winner {
+    font-family: "YanoneKaffeesatzBold";
+    font-size: 40px;
+    text-shadow: 2px 2px #000;
+    color: #ffd700;
+}
+
+tr.winner a:hover {
+    color: #ffd700;
+    border: 0;
 }
 
 footer { 

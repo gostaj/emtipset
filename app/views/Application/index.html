@@ -31,7 +31,8 @@
 <div id="tabs">
     <ul id="menu">
         <li class="active"><a href="#groups">Gruppspel</a></li>
-        <li><a class="disabled" href="#finals">Slutspel</a></li>
+        <li><a class="disabled" href="#knockout">Slutspel</a></li>
+        <li><a class="disabled" href="#toplist">Topplista</a></li>
     </ul>
 
 <div id="groups">
@@ -41,8 +42,8 @@
             <table border="0">
                 <thead>
                 <tr>
-                  <td class="header"></td><td class="header"></td><td class="header"></td>
-                  <td class="header">1</td><td class="header">X</td><td class="header">2</td>
+                  <th></th><th></th><th></th>
+                  <th>1</th><th>X</th><th>2</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -128,9 +129,8 @@
             <table border="0">
                 <thead>
                 <tr>
-                  <td class="header"></td><td class="header"></td><td class="header"></td>
-                  <td class="header">1</td><td class="header">X</td><td class="header">2</td>
-                  <td class="header"></td>
+                  <th></th><th></th><th></th>
+                  <th>1</th><th>X</th><th>2</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -216,9 +216,8 @@
             <table border="0">
                 <thead>
                 <tr>
-                  <td class="header"></td><td class="header"></td><td class="header"></td>
-                  <td class="header">1</td><td class="header">X</td><td class="header">2</td>
-                  <td class="header"></td>
+                  <th></th><th></th><th></th>
+                  <th>1</th><th>X</th><th>2</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -304,9 +303,8 @@
             <table border="0">
                 <thead>
                 <tr>
-                  <td class="header"></td><td class="header"></td><td class="header"></td>
-                  <td class="header">1</td><td class="header">X</td><td class="header">2</td>
-                  <td class="header"></td>
+                  <th></th><th></th><th></th>
+                  <th>1</th><th>X</th><th>2</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -388,8 +386,92 @@
     </div>
 </div>
 
-<div id="finals">
-   <p>Slutspelet har inte startat än. Var vänlig återkom senare.</p> 
+<div id="knockout">
+ <div id="knockout_instructions">Snart kommer du kunna tippa slutspelet här. Klicka på de lag du tror kommer vinna respektive match. Börja med kvartsfinalerna och avsluta med finalen.</div>
+ <div id="finals">
+   <div id="quarterfinals">
+    <table border="0">
+        <thead>
+            <tr><th colspan=2>Kvartsfinaler</th></tr>    
+        </thead>
+        <tbody>
+            <tr class="quarterfinal"><th class="num">1</th>
+                <td><table>
+                    <tr><td><span class="group_letter" id="grp_A">A1</span><a class="game_25" id="game_25_1">1:a grupp A</a></td></tr>
+                    <tr><td><span class="group_letter" id="grp_B">B2</span><a class="game_25" id="game_25_2">2:a grupp B</a></td></tr>
+                </table></td>
+            </tr>
+            <tr class="quarterfinal"><th class="num">2</th>
+                 <td><table>
+                    <tr><td><span class="group_letter" id="grp_B">B1</span><a class="game_26" id="game_26_1">1:a grupp B</a></td></tr>
+                    <tr><td><span class="group_letter" id="grp_A">A2</span><a class="game_26" id="game_26_2">2:a grupp A</a></td></tr>
+                 </table></td>
+            </tr>
+            <tr class="quarterfinal"><th class="num">3</th>
+                <td><table>
+                    <tr><td><span class="group_letter" id="grp_C">C1</span><a class="game_27" id="game_27_1">1:a grupp C</a></td></tr>
+                    <tr><td><span class="group_letter" id="grp_D">D2</span><a class="game_27" id="game_27_2">2:a grupp D</a></td></tr>
+                </table></td>
+            </tr>    
+            <tr class="quarterfinal"><th class="num">4</th>
+                <td><table>
+                    <tr><td><span class="group_letter" id="grp_D">D1</span><a class="game_28" id="game_28_1">1:a grupp D</a></td></tr>
+                    <tr><td><span class="group_letter" id="grp_C">C2</span><a class="game_28" id="game_28_2">2:a grupp C</a></td></tr>
+                </table></td>
+            </tr>
+        </tbody>
+    </table> 
+   </div>
+   <div id="semifinals">
+        <table border="0">
+        <thead>
+            <tr><th colspan=2>Semifinaler</th></tr>   
+        </thead>
+        <tbody>
+            <tr class="semifinal"><th class="num">1</th>
+                <td><table>
+                    <tr><td><a class="game_29" id="game_29_1">Vinnare kvartsfinal 1</a></td></tr>
+                    <tr><td><a class="game_29" id="game_29_2">Vinnare kvartsfinal 3</a></td></tr>
+                </table></td>
+            </tr>
+            <tr class="semifinal"><th class="num">2</th>
+                <td><table>
+                    <tr><td><a class="game_30" id="game_30_1">Vinnare kvartsfinal 2</a></td></tr>
+                    <tr><td><a class="game_30" id="game_31_2">Vinnare kvartsfinal 4</a></td></tr>
+                </table></td>
+            </tr>
+        </tbody>
+    </table>
+   </div>
+   <div id="final">
+     <table border="0">
+        <thead>
+            <tr><th>Final</th></tr>
+        </thead>
+        <tbody>
+            <tr class="final">
+                <td><table>
+                    <tr><td><a class="game_31" id="game_31_1">Vinnare semifinal 1</a></td></tr>
+                    <tr><td><a class="game_31" id="game_31_2">Vinnare semifinal 2</a></td></tr>
+                </table></td>
+            </tr>
+        </tbody> 
+     </table>   
+   </div> 
+   <div id="winner">
+    <table border="0">
+        <thead>
+            <tr><th>Vinnare</th><tr>
+        </thead>
+        <tbody>
+            <tr class="winner"><td><a id="winner_final">EM-mästare</a></td></tr>
+        </tbody>
+    </table> 
+   </div>       
+ </div>
+</div>
+
+<div id="toplist">
 </div>
 
 </div>
