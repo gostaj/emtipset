@@ -1,6 +1,6 @@
 #{extends 'main.html'/}
 #{set 'moreScripts'}
-  #{script 'serverCommunication2.js'/}
+  #{script 'serverCommunication3.js'/}
   #{script 'jquery.countdown.pack.js'/}
   #{script 'jquery.countdown-sv.js'/}
   #{script 'jquery.tabify.js' /}
@@ -484,8 +484,6 @@
 
     %{ if (hasTournamentStarted && emUser.id > 0) {
   }%
-    // Mark bets as right or wrong and sum the points
-    getResults();
     // Disable the possibility to bet
     disableBetting();
     // Get the statistics for the group betting

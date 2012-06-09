@@ -41,6 +41,9 @@ var request = $.getJSON('/gamebets', function(data) {
     userBets--;
   });
   $("#games_to_bet").text(userBets);
+
+  // Mark bets as right or wrong and sum the points
+  getResults();
 });
 
 request.fail(function(jqXHR, textStatus) {
@@ -55,12 +58,14 @@ var request = $.getJSON('/results', function(data) {
   var userPoints = 0;
   var maxPoints = 0;
   $.each(data, function(key, gameBet) {
-    var resultRadio = $("#game_" + gameBet.gameId + "_" + gameBet.result);
-    if (resultRadio.attr("checked") == "checked") {
-        resultRadio.closest("td").addClass("right");
+    var selectedRadio = $("input[id^=game_" + gameBet.gameId + "_]:radio:checked");
+    var resultRadio = $("input[id^=game_" + gameBet.gameId + "_" + gameBet.result + "]:radio");
+
+    if (selectedRadio.attr('id') == resultRadio.attr('id')) {
+        selectedRadio.closest("td").addClass("right");
         userPoints++;
     } else {
-        resultRadio.closest("td").addClass("wrong");
+        selectedRadio.closest("td").addClass("wrong");
     }
     maxPoints++;
   });
