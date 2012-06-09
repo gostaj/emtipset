@@ -103,13 +103,13 @@ var request = $.getJSON('/groupGamebets', function(data) {
   $.each(data, function(key, gameBet) {
     var totalPercent = 0;
 
-    $("#game_" + gameBet.gameId + "_bets > .part_1").width(gameBet.result1 + "%").css('left', totalPercent + "%");
+    $("#game_" + gameBet.gameId + "_bets > .part_1").width(gameBet.result1 + "%").css('left', totalPercent + "%").attr("title", gameBet.result1 + "% tror på 1:a");
     totalPercent += gameBet.result1;
 
-    $("#game_" + gameBet.gameId + "_bets > .part_X").width(gameBet.resultX + "%").css('left', totalPercent + "%");
+    $("#game_" + gameBet.gameId + "_bets > .part_X").width(gameBet.resultX + "%").css('left', totalPercent + "%").attr("title", gameBet.resultX + "% tror på X");
     totalPercent += gameBet.resultX;
 
-    $("#game_" + gameBet.gameId + "_bets > .part_2").width(gameBet.result2 + "%").css('left', totalPercent + "%");
+    $("#game_" + gameBet.gameId + "_bets > .part_2").width(gameBet.result2 + "%").css('left', totalPercent + "%").attr("title", gameBet.result2 + "% tror på 2:a");
   });
 
   $("div.userbets").css('display', 'block');
