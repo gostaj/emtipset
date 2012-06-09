@@ -86,6 +86,11 @@ public class Admin extends Controller {
 
     public static void sumPoints() {
         makeSureUserIsAdmin();
+        List<String> userPoints = sumPointsAndUpdate();
+        render(userPoints);
+    }
+
+    static List<String> sumPointsAndUpdate() {
         List<String> userPoints = new ArrayList<String>();
         List<User> users = User.findAll();
         for (User user : users) {
@@ -93,7 +98,7 @@ public class Admin extends Controller {
             user.save();
             userPoints.add(String.format("UserId %d: %d points", user.id, user.points));
         }
-        render(userPoints);
+        return userPoints;
     }
 
     private static void makeSureUserIsAdmin() {
