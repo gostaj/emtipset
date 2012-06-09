@@ -5,17 +5,17 @@
 * /auth module:securesocial
 
 # Home page
-GET     /           Application.index
+GET     /               Application.index
 
 # Shows the bets the current logged in user have made
 GET     /gamebets       GameBets.listUserBets
 GET     /groupGamebets  GameBets.listGroupBets
 
 # Places a bet for the current logged in user
-POST    /gamebet    GameBets.create
+POST    /gamebet        GameBets.create
 
 # Returns the end game results (such as "X" for a draw)
-GET     /results    Results.list
+GET     /results        Results.list
 
 # Returns the end game scores (such as "1 - 3")
 GET     /scores         Scores.list
