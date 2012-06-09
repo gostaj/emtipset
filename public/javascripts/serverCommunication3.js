@@ -120,3 +120,20 @@ request.fail(function(jqXHR, textStatus) {
 });
 
 }
+
+
+// Get the scores and put them on the page
+function getScores() {
+
+var request = $.getJSON('/scores', function(data) {
+  $.each(data, function(key, score) {
+    $("#game_" + score.gameId).attr("title", score.score);
+  });
+});
+
+request.fail(function(jqXHR, textStatus) {
+  alert( "Problem att kontakta servern (hämta matchresultat), prova att ladda om sidan eller logga ut och in igen. \nFel: " + textStatus);
+});
+
+}
+

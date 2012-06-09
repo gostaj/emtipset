@@ -1,0 +1,25 @@
+#{extends 'Admin/adminMain.html'/}
+
+<div>
+    <b>Scores</b>
+
+    <table cellpadding="2" border="2">
+        <thead><tr><th>Game Id</th><th>&nbsp;</th><th>Score</th></tr></thead>
+        #{list items:scores, as:'score' }
+        <tr><td>${score.gameId}</td><td>&nbsp;</td><td>${score.score}</td></tr>
+        #{/list}
+    </table>
+</div>
+<br/>
+<div>
+    <b>Add/update score</b><br/>
+    #{form @Admin.updateScore()}
+    <label for="gameId">Game id:</label>
+    <input id="gameId" name="gameId" type="text" size="3"/>
+
+    <label for="score">Score:</label>
+    <input id="score" name="score" type="text" size="10"/>
+    <br/>
+    <input type="submit" value="Add/update score"/>
+    #{/form}
+</div>

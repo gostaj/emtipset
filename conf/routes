@@ -13,17 +13,22 @@ GET     /groupGamebets  GameBets.listGroupBets
 
 # Places a bet for the current logged in user
 POST    /gamebet    GameBets.create
-#GET   /games/:id   Games.show(id: Long)
 
-# Returns the end game results
+# Returns the end game results (such as "X" for a draw)
 GET     /results    Results.list
 
+# Returns the end game scores (such as "1 - 3")
+GET     /scores         Scores.list
+
+# Admin functions
 GET     /admin                  Admin.adminPanel
 GET     /admin/users            Admin.users
 POST    /admin/changeUser       Admin.changeUser
 GET     /admin/deleteResults    Admin.deleteResults
 GET     /admin/sumPoints        Admin.sumPoints
 GET     /admin/topList          Admin.topList
+GET     /admin/scores           Admin.scores
+POST    /updateScore            Admin.updateScore
 
 # Does this work?
 GET /favicon.ico staticFile:/public/images/favicon.png

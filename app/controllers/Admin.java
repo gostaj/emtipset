@@ -1,7 +1,9 @@
 package controllers;
 
 import controllers.securesocial.SecureSocial;
+import exceptions.EmtipsetException;
 import models.GameBet;
+import models.Score;
 import models.User;
 import play.Play;
 import play.mvc.Controller;
@@ -38,6 +40,18 @@ public class Admin extends Controller {
         render(users);
     }
 
+    public static void scores() throws EmtipsetException {
+        makeSureUserIsAdmin();
+
+        List<Score> scores = Score.findAll();
+        render(scores);
+    }
+
+    public static void updateScore(Long gameId, String score) throws EmtipsetException {
+        makeSureUserIsAdmin();
+        Score.updateScore(gameId, score);
+        scores();
+    }
 
     public static void changeUser(Long userId, String group, String name, String avatarUrl) {
         makeSureUserIsAdmin();
