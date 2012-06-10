@@ -566,8 +566,26 @@ tr.quarterfinal, tr.semifinal, tr.final {
     border: 10px solid #eee;
 }
 
-tr.quarterfinal a, tr.semifinal a, tr.final a, tr.winner a {
+tr.quarterfinal a, tr.semifinal a, tr.final a {
     outline: 0;
+    padding: 4px;
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #333; 
+}
+
+tr.quarterfinal a:hover, tr.semifinal a:hover, tr.final a:hover {
+    border: 0;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid #8ccce5;
+}
+
+div#finals a.selected {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid #1899cb;
 }
 
 tr.winner {
@@ -575,6 +593,10 @@ tr.winner {
     font-size: 40px;
     text-shadow: 2px 2px #000;
     color: #ffd700;
+}
+
+tr.winner a {
+    outline: 0;
 }
 
 tr.winner a:hover {
