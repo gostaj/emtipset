@@ -604,6 +604,46 @@ tr.winner a:hover {
     border: 0;
 }
 
+div#toplist_instructions {
+    float: left;
+    font-family: "YanoneKaffeesatzThin";
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+div#grouplist, div#referencelist {
+    float: left;
+    width: 48%;
+    font-family: "YanoneKaffeesatzRegular";
+    font-size: 20px;
+    padding: 10px 0 10px 10px;
+}
+
+div#grouplist th, div#grouplist td {
+    text-align: left;
+    padding: 10px;
+}
+
+div#grouplist td.name {
+    width: 60%;
+}
+
+div#grouplist tbody tr:nth-child(1) { font-size: 40px; }
+div#grouplist tbody tr:nth-child(2) { font-size: 30px; }
+div#grouplist tbody tr:nth-child(3) { font-size: 26px; }
+
+div#grouplist th.num {
+    width: 20%;
+}
+
+div#referencelist th, div#referencelist td {
+    text-align: left;
+    padding: 10px;
+}
+
+
 footer { 
     margin-top: 0; 
     margin-bottom: 10px; 
