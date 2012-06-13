@@ -615,19 +615,17 @@ div#toplist_instructions {
 
 div#grouplist, div#referencelist {
     float: left;
-    width: 48%;
     font-family: "YanoneKaffeesatzRegular";
     font-size: 20px;
     padding: 10px 0 10px 10px;
 }
 
+div#grouplist { width: 55%; }
+div#referencelist { width: 38%; }
+
 div#grouplist th, div#grouplist td {
     text-align: left;
     padding: 10px;
-}
-
-div#grouplist td.name {
-    width: 60%;
 }
 
 div#grouplist tbody tr:nth-child(1) { font-size: 40px; }
@@ -635,7 +633,7 @@ div#grouplist tbody tr:nth-child(2) { font-size: 30px; }
 div#grouplist tbody tr:nth-child(3) { font-size: 26px; }
 
 div#grouplist th.num {
-    width: 20%;
+    width: 15%;
 }
 
 div#referencelist th, div#referencelist td {
@@ -643,6 +641,20 @@ div#referencelist th, div#referencelist td {
     padding: 10px;
 }
 
+div#reference_text {
+    font-family: "YanoneKaffeesatzThin";
+    font-size: 18px;
+}
+
+div#reference_text ul {
+    list-style: none;
+    padding: 0;
+}
+
+div#reference_text li {
+    padding: 0 0 10px 0;
+    margin: 0;
+}
 
 footer { 
     margin-top: 0; 
