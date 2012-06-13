@@ -42,6 +42,10 @@ public class User extends GenericModel {
 
     public int points;
 
+    // This measurement includes the order of games, later games are "worth" more than earlier games
+    @Column(name = "weighted_points")
+    public int weightedPoints;
+
     public Date created = new Date();
 
     @Transient
@@ -79,7 +83,7 @@ public class User extends GenericModel {
     }
 
     public static List<User> getUserGroupPointSorted(String group) {
-        return find("select u from User u where u.group = ? order by points desc, id asc", group).fetch();
+        return find("select u from User u where u.group = ? order by weightedPoints desc, id asc", group).fetch();
     }
 
     public static List<User> getAllIdSorted() {
