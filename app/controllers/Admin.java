@@ -94,11 +94,32 @@ public class Admin extends Controller {
         List<String> userPoints = new ArrayList<String>();
         List<User> users = User.findAll();
         for (User user : users) {
-            user.points = GameBet.getPointsForUser(user);
+            updatePointsForUser(user);
+            updateWeightedPointsForUser(user);
             user.save();
-            userPoints.add(String.format("UserId %d: %d points", user.id, user.points));
+            userPoints.add(String.format("UserId %d: %d points, %d weighted points",
+                    user.id, user.points, user.weightedPoints));
         }
         return userPoints;
+    }
+
+    private static void updatePointsForUser(User user) {
+        // Group games
+        user.points = GameBet.getPointsForUser(user, 1L, 24L);
+        // Quarter final games
+        user.points += GameBet.getPointsForUser(user, 25L, 28L) * 2;
+        // Semi final games
+        user.points += GameBet.getPointsForUser(user, 29L, 30L) * 4;
+        // Final game
+        user.points += GameBet.getPointsForUser(user, 31L, 31L) * 10;
+    }
+
+    private static void updateWeightedPointsForUser(User user) {
+        user.weightedPoints = user.points * 1000;
+        List<GameBet> correctGameBets = GameBet.getCorrectGameBetsForUser(user);
+        for (GameBet gameBet : correctGameBets) {
+            user.weightedPoints += gameBet.gameId * gameBet.gameId;
+        }
     }
 
     private static void makeSureUserIsAdmin() {

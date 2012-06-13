@@ -89,12 +89,22 @@ public class GameBet extends GenericModel {
         return delete("user = ?", User.getResultUser());
     }
 
-    public static int getPointsForUser(User user) {
+    public static int getPointsForUser(User user, Long startGameId, Long endGameId) {
         return new Long(count("select count(*) from GameBet r, GameBet g " +
                 "where r.user = ? " +
                 "and g.user = ? " +
+                "and r.gameId >= ? " +
+                "and r.gameId <= ? " +
                 "and r.result = g.result " +
-                "and r.gameId = g.gameId", User.getResultUser(), user)).intValue();
+                "and r.gameId = g.gameId", User.getResultUser(), user, startGameId, endGameId)).intValue();
+    }
+
+    public static List<GameBet> getCorrectGameBetsForUser(User user) {
+        return find("select r from GameBet r, GameBet g " +
+                "where r.user = ? " +
+                "and g.user = ? " +
+                "and r.result = g.result " +
+                "and r.gameId = g.gameId", User.getResultUser(), user).fetch();
     }
 
     public static int getNumberOfBetsPlaced(User user) {
