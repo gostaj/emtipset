@@ -8,11 +8,15 @@ import play.mvc.Controller;
 import play.mvc.With;
 import securesocial.provider.SocialUser;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 
 @With( SecureSocial.class )
 public class Application extends Controller {
+
+    private static final String REFERENCE_GROUP_NAME = "referens";
 
     public static void index(boolean disableAutoLogin) {
         if (disableAutoLogin) {
@@ -29,7 +33,23 @@ public class Application extends Controller {
 
             long secondsUntilTournamentStart = getSecondsUntilTournamentStart();
 
-            render(user, emUser, hasTournamentStarted, userPlaceInGroup, usersInGroup, secondsUntilTournamentStart);
+            List<User> topList = getTopList(emUser.group);
+            List<User> refTopList = getRefTopList();
+
+            render(user, emUser, hasTournamentStarted, userPlaceInGroup, usersInGroup, secondsUntilTournamentStart,
+                    topList, refTopList);
+        }
+    }
+
+    private static List<User> getRefTopList() {
+        return getTopList(REFERENCE_GROUP_NAME);
+    }
+
+    private static List<User> getTopList(String group) {
+        if (haveGroupGamesEnded() || Play.mode.isDev()) {
+            return User.getUserGroupPointSorted(group);
+        } else {
+            return new ArrayList<User>();
         }
     }
 
@@ -47,6 +67,12 @@ public class Application extends Controller {
         return now.after(tournamentStart);
     }
 
+    static boolean haveGroupGamesEnded() {
+        Calendar tournamentStart = getGroupGamesEndCal();
+        Calendar now = Calendar.getInstance();
+        return now.after(tournamentStart);
+    }
+
     // The tournament starts the 8th of June 18:00 CET
     private static Calendar getTournamentStartCal() {
         Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
@@ -54,11 +80,18 @@ public class Application extends Controller {
         return tournamentStart;
     }
 
+    // The group games ends the 19th of June 23:00 CET
+    private static Calendar getGroupGamesEndCal() {
+        Calendar groupGamesEnd = Calendar.getInstance(TimeZone.getTimeZone("CET"));
+        groupGamesEnd.set(2012, Calendar.JUNE, 19, 23, 00);
+        return groupGamesEnd;
+    }
+
     // The knock out phase starts the 21th of June 20:45 CET
     private static Calendar getKnockOutPhaseStartCal() {
-        Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
-        tournamentStart.set(2012, Calendar.JUNE, 21, 20, 45);
-        return tournamentStart;
+        Calendar knockOutPhaseStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
+        knockOutPhaseStart.set(2012, Calendar.JUNE, 21, 20, 45);
+        return knockOutPhaseStart;
     }
 
     private static long getSecondsUntilTournamentStart() {

@@ -479,11 +479,10 @@
                 <tr><th>Plats</th><th>Namn</th><th>Poäng</th></tr>
             </thead>
             <tbody>
-                <tr><th class="num">1</th><td class="name">Nasse Luff</td><td>30</td></tr>
-                <tr><th class="num">2</th><td class="name">Lasse Nuss</td><td>22</td></tr>
-                <tr><th class="num">3</th><td class="name">Hasse Tuff</td><td>20</td></tr>
-                <tr><th class="num">4</th><td class="name">Tobias Gruff</td><td>10</td></tr>
-                <tr><th class="num">5</th><td class="name">Göran Kuff</td><td>2</td></tr>
+            #{list items:topList, as:'tlUser' }
+                <tr><th class="num">${tlUser_index}</th><td class="name">${tlUser.name}</td><td>${tlUser.points}</td></tr>
+                <!-- Weighted points: ${tlUser.weightedPoints} -->
+            #{/list}
             </tbody>
         </table> 
     </div>
@@ -493,9 +492,10 @@
             <tr><th>Namn</th><th>Poäng</th></tr>
           </thead>
           <tbody>
-            <tr><td>"Oddset"</td><td>10</td></tr>
-            <tr><td>"FIFA"</td><td>8</td></tr>
-            <tr><td>"Apan"</td><td>3</td></tr>
+          #{list items:refTopList, as:'rtlUser' }
+              <tr><td>${rtlUser.name}</td><td>${rtlUser.points}</td></tr>
+              <!-- Weighted points: ${rtlUser.weightedPoints} -->
+          #{/list}
           </tbody>
         </table>
     </div>
