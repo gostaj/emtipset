@@ -588,6 +588,13 @@ div#finals a.selected {
     border: 2px solid #1899cb;
 }
 
+div#finals a.disabled {
+    color: #bbb;
+    pointer-events: none;
+    cursor: default;
+}
+    
+
 tr.winner {
     font-family: "YanoneKaffeesatzBold";
     font-size: 40px;
@@ -634,6 +641,10 @@ div#grouplist tbody tr:nth-child(3) { font-size: 26px; }
 
 div#grouplist th.num {
     width: 15%;
+}
+
+div#grouplist tr#current_user {
+    background-color: rgba(24,153,203,0.2);
 }
 
 div#referencelist th, div#referencelist td {
