@@ -480,7 +480,8 @@
             </thead>
             <tbody>
             #{list items:topList, as:'tlUser' }
-                <tr><th class="num">${tlUser_index}</th><td class="name">${tlUser.name}</td><td>${tlUser.points}</td></tr>
+                #{if tlUser.id == emUser.id } <tr id="current_user"> #{/if} #{else} <tr> #{/else}
+                <th class="num">${tlUser_index}</th><td class="name">${tlUser.name}</td><td>${tlUser.points}</td></tr>
                 <!-- Weighted points: ${tlUser.weightedPoints} -->
             #{/list}
             </tbody>
