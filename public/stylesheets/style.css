@@ -258,10 +258,10 @@ div#countryinfo img {
 }
 
 span.group_letter { padding: 0 5px; border-radius: 0.2em; }
-span.group_letter#grp_A { background: #e41a1c; }
-span.group_letter#grp_B { background: #377eb8; }
-span.group_letter#grp_C { background: #4daf4a; }
-span.group_letter#grp_D { background: #984EA3; }
+span.group_letter.grp_A { background: #e41a1c; }
+span.group_letter.grp_B { background: #377eb8; }
+span.group_letter.grp_C { background: #4daf4a; }
+span.group_letter.grp_D { background: #984EA3; }
 
 div#countryinfo div#info {
     clear: both;
