@@ -397,26 +397,26 @@
         <tbody>
             <tr class="quarterfinal"><th class="num">1</th>
                 <td><table>
-                    <tr><td><span class="group_letter grp_A">A1</span><a class="game_25" id="game_25_1">1:a grupp A</a></td></tr>
-                    <tr><td><span class="group_letter grp_B">B2</span><a class="game_25" id="game_25_2">2:a grupp B</a></td></tr>
+                    <tr><td><span class="group_letter grp_A">A1</span><a class="game_25" id="game_25_1" onclick="setQuarterFinalGameBet(25, '1', 'game_29_0');">Tjeckien</a></td></tr>
+                    <tr><td><span class="group_letter grp_B">B2</span><a class="game_25" id="game_25_2" onclick="setQuarterFinalGameBet(25, '2', 'game_29_0');">Portugal</a></td></tr>
                 </table></td>
             </tr>
             <tr class="quarterfinal"><th class="num">2</th>
                  <td><table>
-                    <tr><td><span class="group_letter grp_B">B1</span><a class="game_26" id="game_26_1">1:a grupp B</a></td></tr>
-                    <tr><td><span class="group_letter grp_A">A2</span><a class="game_26" id="game_26_2">2:a grupp A</a></td></tr>
+                    <tr><td><span class="group_letter grp_B">B1</span><a class="game_26" id="game_26_3" onclick="setQuarterFinalGameBet(26, '3', 'game_30_1');">Tyskland</a></td></tr>
+                    <tr><td><span class="group_letter grp_A">A2</span><a class="game_26" id="game_26_4" onclick="setQuarterFinalGameBet(26, '4', 'game_30_1');">Grekland</a></td></tr>
                  </table></td>
             </tr>
             <tr class="quarterfinal"><th class="num">3</th>
                 <td><table>
-                    <tr><td><span class="group_letter grp_C">C1</span><a class="game_27" id="game_27_1">1:a grupp C</a></td></tr>
-                    <tr><td><span class="group_letter grp_D">D2</span><a class="game_27" id="game_27_2">2:a grupp D</a></td></tr>
+                    <tr><td><span class="group_letter grp_C">C1</span><a class="game_27" id="game_27_5" onclick="setQuarterFinalGameBet(27, '5', 'game_29_2');">1:a grupp C</a></td></tr>
+                    <tr><td><span class="group_letter grp_D">D2</span><a class="game_27" id="game_27_6" onclick="setQuarterFinalGameBet(27, '6', 'game_29_2');">2:a grupp D</a></td></tr>
                 </table></td>
             </tr>    
             <tr class="quarterfinal"><th class="num">4</th>
                 <td><table>
-                    <tr><td><span class="group_letter grp_D">D1</span><a class="game_28" id="game_28_1">1:a grupp D</a></td></tr>
-                    <tr><td><span class="group_letter grp_C">C2</span><a class="game_28" id="game_28_2">2:a grupp C</a></td></tr>
+                    <tr><td><span class="group_letter grp_D">D1</span><a class="game_28" id="game_28_7" onclick="setQuarterFinalGameBet(28, '7', 'game_30_3');">1:a grupp D</a></td></tr>
+                    <tr><td><span class="group_letter grp_C">C2</span><a class="game_28" id="game_28_8" onclick="setQuarterFinalGameBet(28, '8', 'game_30_3');">2:a grupp C</a></td></tr>
                 </table></td>
             </tr>
         </tbody>
@@ -430,14 +430,14 @@
         <tbody>
             <tr class="semifinal"><th class="num">1</th>
                 <td><table>
-                    <tr><td><a class="game_29" id="game_29_1">Vinnare kvartsfinal 1</a></td></tr>
-                    <tr><td><a class="game_29" id="game_29_2">Vinnare kvartsfinal 3</a></td></tr>
+                    <tr><td><a class="game_29" id="game_29_0" onclick="setSemiFinalGameBet(29, '0', 'game_31_0');">Vinnare kvartsfinal 1</a></td></tr>
+                    <tr><td><a class="game_29" id="game_29_2" onclick="setSemiFinalGameBet(29, '2', 'game_31_0');">Vinnare kvartsfinal 3</a></td></tr>
                 </table></td>
             </tr>
             <tr class="semifinal"><th class="num">2</th>
                 <td><table>
-                    <tr><td><a class="game_30" id="game_30_1">Vinnare kvartsfinal 2</a></td></tr>
-                    <tr><td><a class="game_30" id="game_31_2">Vinnare kvartsfinal 4</a></td></tr>
+                    <tr><td><a class="game_30" id="game_30_1" onclick="setSemiFinalGameBet(30, '1', 'game_31_1');">Vinnare kvartsfinal 2</a></td></tr>
+                    <tr><td><a class="game_30" id="game_30_3" onclick="setSemiFinalGameBet(30, '3', 'game_31_1');">Vinnare kvartsfinal 4</a></td></tr>
                 </table></td>
             </tr>
         </tbody>
@@ -451,8 +451,8 @@
         <tbody>
             <tr class="final">
                 <td><table>
-                    <tr><td><a class="game_31" id="game_31_1">Vinnare semifinal 1</a></td></tr>
-                    <tr><td><a class="game_31" id="game_31_2">Vinnare semifinal 2</a></td></tr>
+                    <tr><td><a class="game_31" id="game_31_0" onclick="setFinalGameBet(31, '0');">Vinnare semifinal 1</a></td></tr>
+                    <tr><td><a class="game_31" id="game_31_1" onclick="setFinalGameBet(31, '1');">Vinnare semifinal 2</a></td></tr>
                 </table></td>
             </tr>
         </tbody> 
@@ -532,6 +532,10 @@
   %{
      }
   }%
+
+    // Mark for ex. semi finals as disabled if user haven't placed quarter final bets
+    toggleFinalGameBetting();
+
 
     //Create tabs for navigation
    $('#menu').tabify();

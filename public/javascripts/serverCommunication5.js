@@ -1,3 +1,8 @@
+// Team ids of the teams that the user thinks will go to the semi finals.
+var semiFinalists = new Array(4);
+// Team ids of the teams that the user thinks will go to the final.
+var finalists = new Array(2);
+
 function setGameBet(gameId, result) {
 
 var request = $.ajax({
@@ -26,10 +31,73 @@ var request = $.ajax({
 
 request.fail(function(jqXHR, textStatus) {
     $("#game_" + gameId + "_" + result).removeAttr("checked");
-  alert( "Problem att kontakta servern (för att tippa), prova att tippa igen eller logga ut och in igen. \nFel: " + textStatus);
+    alert( "Problem att kontakta servern (för att tippa), prova att tippa igen eller logga ut och in igen. \nFel: " + textStatus);
 });
 }
 
+
+function setKnockOutGameBet(gameId, winningTeamId, winningTeamInArray, nextGameElement) {
+
+var request = $.ajax({
+  url: "/gamebet",
+  type: "POST",
+  data: { gameId: gameId, result: winningTeamId },
+  dataType: "html",
+  cache: false
+}).done(function(data) {
+    markKnockOutGameBet(gameId, winningTeamInArray, nextGameElement)
+});
+
+request.fail(function(jqXHR, textStatus) {
+    alert( "Problem att kontakta servern (för att tippa), prova att tippa igen eller logga ut och in igen. \nFel: " + textStatus);
+});
+}
+
+
+function toggleFinalGameBetting() {
+    // Enable semi final betting
+    $("#semifinals").find("a").removeClass("disabled");
+    for (var i = 0; i < semiFinalists.length; i++) {
+        if (!semiFinalists[i]) {
+            // Disable semi final betting if any semi finalist has not been set
+            $("#semifinals").find("a").addClass("disabled");
+            break;
+        }
+    }
+    // Enable final game betting
+    $("#final").find("a").removeClass("disabled");
+    for (var i = 0; i < finalists.length; i++) {
+        if (!finalists[i]) {
+            // Disable final betting if any finalist has not been set
+            $("#final").find("a").addClass("disabled");
+            break;
+        }
+    }
+}
+
+function setQuarterFinalGameBet(gameId, winningTeamId, nextGameElement) {
+    semiFinalists[gameId-25] = winningTeamId;
+    setKnockOutGameBet(gameId, winningTeamId, winningTeamId, nextGameElement);
+}
+
+function setSemiFinalGameBet(gameId, winningTeamInArray, nextGameElement) {
+    winningTeamId = semiFinalists[winningTeamInArray];
+    finalists[gameId-29] = winningTeamId;
+    setKnockOutGameBet(gameId, winningTeamId, winningTeamInArray, nextGameElement);
+}
+
+function setFinalGameBet(gameId, winningTeamInArray) {
+    winningTeamId = finalists[winningTeamInArray];
+    setKnockOutGameBet(gameId, winningTeamId, winningTeamInArray, "winner_final");
+}
+
+function markKnockOutGameBet(gameId, winningTeamId, nextGameElement) {
+    $("#game_" + gameId + "_" + winningTeamId).closest("table").find("a").removeClass("selected");
+    $("#game_" + gameId + "_" + winningTeamId).addClass("selected");
+    var teamName = $("#game_" + gameId + "_" + winningTeamId).text();
+    $("#" + nextGameElement).text(teamName);
+    toggleFinalGameBetting();
+}
 
 function getGameBets() {
 
