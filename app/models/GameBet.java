@@ -36,14 +36,14 @@ public class GameBet extends GenericModel {
     public Date updated = new Date();
 
     public GameBet(Long gameId, User user, char result) {
-        validateResult(result);
+        validateResult(gameId, result);
         this.gameId = gameId;
         this.result = result;
         this.user = user;
     }
 
-    public static void validateResult(char result) {
-        if (result != '1' && result != 'X' && result != '2') {
+    public static void validateResult(Long gameId, char result) {
+        if (gameId <= 24 && (result != '1' && result != 'X' && result != '2')) {
             throw new EmtipsetException("Result " + result + " is not any of 1, X or 2!");
         }
     }
@@ -69,7 +69,7 @@ public class GameBet extends GenericModel {
     }
 
     private static void update(GameBet gameBet, char gameResult) {
-        validateResult(gameResult);
+        validateResult(gameBet.gameId, gameResult);
         gameBet.result = gameResult;
         gameBet.updated = new Date();
         gameBet.save();

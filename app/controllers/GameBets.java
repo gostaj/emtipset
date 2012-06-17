@@ -111,10 +111,13 @@ public class GameBets extends Controller {
 
     public static void create(Long gameId, Character result) throws EmtipsetException {
         User user = getLoggedInUser();
-        if (Application.hasTournamentStarted() && !user.isResultUser()) {
+        if (!user.isResultUser() &&
+                ((Application.hasTournamentStarted() && gameId <= 24) ||
+                 (Application.hasKnockOutPhaseStarted() && gameId > 24))) {
             error("Tournament has started, no bets can be made.");
+            Logger.info("No bets made");
         }
-        GameBet.validateResult(result);
+        GameBet.validateResult(gameId, result);
         GameBet.placeGameBet(gameId, user, result);
 
         if (user.isResultUser()) {
