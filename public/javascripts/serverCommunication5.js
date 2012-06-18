@@ -102,13 +102,33 @@ function markKnockOutGameBet(gameId, winningTeamId, nextGameElement) {
 function getGameBets() {
 
 var request = $.getJSON('/gamebets', function(data) {
-  var userBets = 24; // Number of group games
   $.each(data, function(key, gameBet) {
-    $("#game_" + gameBet.gameId + "_" + gameBet.result).attr("checked", "checked");
-    $("#game_" + gameBet.gameId + "_" + gameBet.result).closest("td").addClass("betPlaced");
-    userBets--;
+    if (gameBet.gameId < 25) {
+        $("#game_" + gameBet.gameId + "_" + gameBet.result).attr("checked", "checked");
+        $("#game_" + gameBet.gameId + "_" + gameBet.result).closest("td").addClass("betPlaced");
+    } else if (gameBet.gameId < 29) {
+        $("#game_" + gameBet.gameId + "_" + gameBet.result).click();
+    } else if (gameBet.gameId == 29) {
+        if (gameBet.result < 3) {
+           $("#game_" + gameBet.gameId + "_0").click();
+        } else {
+           $("#game_" + gameBet.gameId + "_2").click();
+        }
+    } else if (gameBet.gameId == 30) {
+        if (gameBet.result < 5) {
+           $("#game_" + gameBet.gameId + "_1").click();
+        } else {
+           $("#game_" + gameBet.gameId + "_3").click();
+        }
+    } else if (gameBet.gameId == 31) {
+        if (gameBet.result < 3 || gameBet.result == 5 || gameBet.result == 6) {
+           $("#game_" + gameBet.gameId + "_0").click();
+        } else {
+           $("#game_" + gameBet.gameId + "_1").click();
+        }
+    }
+    toggleFinalGameBetting()
   });
-  $("#games_to_bet").text(userBets);
 
   // Mark bets as right or wrong and sum the points
   getResults();
@@ -123,24 +143,26 @@ request.fail(function(jqXHR, textStatus) {
 function getResults() {
 
 var request = $.getJSON('/results', function(data) {
-  var userPoints = 0;
-  var maxPoints = 0;
   $.each(data, function(key, gameBet) {
-    var selectedRadio = $("input[id^=game_" + gameBet.gameId + "_]:radio:checked");
-    var resultRadio = $("input[id^=game_" + gameBet.gameId + "_" + gameBet.result + "]:radio");
+    if (gameBet.gameId < 25) {
+        var selectedRadio = $("input[id^=game_" + gameBet.gameId + "_]:radio:checked");
+        var resultRadio = $("input[id^=game_" + gameBet.gameId + "_" + gameBet.result + "]:radio");
 
-    if (selectedRadio.attr('id') == resultRadio.attr('id')) {
-        selectedRadio.closest("td").addClass("right");
-        userPoints++;
-    } else {
-        selectedRadio.closest("td").addClass("wrong");
+        if (selectedRadio.attr('id') == resultRadio.attr('id')) {
+            selectedRadio.closest("td").addClass("right");
+        } else {
+            selectedRadio.closest("td").addClass("wrong");
+        }
+    } else if (gameBet.gameId < 29) {
+        // TODO: Mark knock out bets as right or wrong
+        var selectedTeam = $("#game_" + gameBet.gameId + "_" + gameBet.result);
+        if (selectedTeam.hasClass("selected")) {
+            selectedTeam.closest("td").addClass("right");
+        } else {
+            selectedTeam.closest("td").addClass("wrong");
+        }
     }
-    maxPoints++;
   });
-
-  // Print out userPoints and maxPoints
-  $("#userPoints").text(userPoints);
-  $("#maxPoints").text(maxPoints);
 
   });
 
