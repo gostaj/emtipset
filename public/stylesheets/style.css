@@ -607,6 +607,16 @@ div#finals a.selected {
     border: 2px solid #1899cb;
 }
 
+div#finals a.wrong {
+    background-color: #feb2b2;
+    border: 2px solid #feb2b2;
+}
+
+div#finals a.right {
+    background-color: #b2feb2;
+    border: 2px solid #b2feb2;
+}
+
 div#finals a.disabled {
     color: #bbb;
     pointer-events: none;
