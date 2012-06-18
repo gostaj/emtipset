@@ -537,7 +537,22 @@ div#knockout_instructions {
 div#quarterfinals, div#semifinals, div#final, div#winner {
     display: table-cell;
     vertical-align: middle;
+    width: 27%;
 }
+
+div#final {
+    width: 22%;
+}
+
+div#quarterfinals table { width: 100%; }
+div#semifinals table { width: 100%; }
+div#final table { width: 100%; }
+div#winner table { width: 100%; }
+
+div#quarterfinals > table { width: 90%; }
+div#semifinals > table { width: 90%; }
+div#final > table { width: 90%; }
+div#winner > table { width: 90%; }
 
 div#finals th {
     font-family: "YanoneKaffeesatzRegular";
@@ -558,7 +573,11 @@ table span.group_letter {
 }
 
 div#finals td {
-    padding: 5px 15px 5px 5px;
+    padding: 5px 5px 5px 10px;
+}
+
+div#final td, div#winner td {
+    text-align: center;
 }
 
 tr.quarterfinal, tr.semifinal, tr.final {
