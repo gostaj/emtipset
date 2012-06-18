@@ -82,7 +82,8 @@ public class GameBet extends GenericModel {
     }
 
     public static List<GameBet> getByUser(User user) {
-        return find("byUser", user).fetch();
+        return find("select g from GameBet g " +
+                    "where g.user = ? order by g.gameId", user).fetch();
     }
 
     public static int deleteResults() {
