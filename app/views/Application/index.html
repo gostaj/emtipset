@@ -21,7 +21,7 @@
 
 <div id="standings">
     <div id="points">
-        <span id="label">Poäng: </span><span id="userPoints">0</span>/<span id="maxPoints">0</span> (50)
+        <span id="label">Poäng: </span><span id="userPoints">${emUser.points}</span>/<span id="maxPoints">${maxPoints}</span> (50)
     </div>
     <div id="place">
         <span class="label">Plats #</span><span id="userPlace">${userPlaceInGroup}</span> av <span id="usersNum">${usersInGroup}</span>
@@ -532,10 +532,6 @@
   %{
      }
   }%
-
-    // Mark for ex. semi finals as disabled if user haven't placed quarter final bets
-    toggleFinalGameBetting();
-
 
     //Create tabs for navigation
    $('#menu').tabify();

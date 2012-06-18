@@ -36,8 +36,10 @@ public class Application extends Controller {
             List<User> topList = getTopList(emUser.group);
             List<User> refTopList = getRefTopList();
 
+            int maxPoints = User.getResultUser().points;
+
             render(user, emUser, hasTournamentStarted, userPlaceInGroup, usersInGroup, secondsUntilTournamentStart,
-                    topList, refTopList);
+                    topList, refTopList, maxPoints);
         }
     }
 
