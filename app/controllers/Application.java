@@ -73,6 +73,12 @@ public class Application extends Controller {
         return now.after(tournamentStart);
     }
 
+    static boolean hasKnockOutPhaseStarted() {
+        Calendar knockOutPhaseStart = getKnockOutPhaseStartCal();
+        Calendar now = Calendar.getInstance();
+        return now.after(knockOutPhaseStart);
+    }
+
     // The tournament starts the 8th of June 18:00 CET
     private static Calendar getTournamentStartCal() {
         Calendar tournamentStart = Calendar.getInstance(TimeZone.getTimeZone("CET"));
