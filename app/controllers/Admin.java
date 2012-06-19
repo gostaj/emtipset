@@ -36,7 +36,7 @@ public class Admin extends Controller {
     public static void topList() {
         makeSureUserIsAdmin();
 
-        List<User> users = User.getAllPointSorted();
+        List<User> users = User.getAllWeightedPointSorted();
         render(users);
     }
 
