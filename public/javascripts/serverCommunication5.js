@@ -2,6 +2,10 @@
 var semiFinalists = new Array(4);
 // Team ids of the teams that the user thinks will go to the final.
 var finalists = new Array(2);
+// Team id of the team that the user thinks will win the tournament
+var winner;
+// Set to false to disable posting of knock out game bets
+var postKnockOutGameBet = true;
 
 function setGameBet(gameId, result) {
 
@@ -35,8 +39,17 @@ request.fail(function(jqXHR, textStatus) {
 });
 }
 
+function disableKnockOutBetting() {
+    postKnockOutGameBet = false;
+}
+
 
 function setKnockOutGameBet(gameId, winningTeamId, winningTeamInArray, nextGameElement) {
+
+if (!postKnockOutGameBet) {
+    markKnockOutGameBet(gameId, winningTeamInArray, nextGameElement);
+    return;
+}
 
 var request = $.ajax({
   url: "/gamebet",
@@ -45,7 +58,7 @@ var request = $.ajax({
   dataType: "html",
   cache: false
 }).done(function(data) {
-    markKnockOutGameBet(gameId, winningTeamInArray, nextGameElement)
+    markKnockOutGameBet(gameId, winningTeamInArray, nextGameElement);
 });
 
 request.fail(function(jqXHR, textStatus) {
@@ -78,17 +91,31 @@ function toggleFinalGameBetting() {
 function setQuarterFinalGameBet(gameId, winningTeamId, nextGameElement) {
     semiFinalists[gameId-25] = winningTeamId;
     setKnockOutGameBet(gameId, winningTeamId, winningTeamId, nextGameElement);
+    removeSemiFinalBetSelections();
+    removeFinalBetSelection();
 }
 
 function setSemiFinalGameBet(gameId, winningTeamInArray, nextGameElement) {
     winningTeamId = semiFinalists[winningTeamInArray];
     finalists[gameId-29] = winningTeamId;
     setKnockOutGameBet(gameId, winningTeamId, winningTeamInArray, nextGameElement);
+    removeFinalBetSelection();
 }
 
 function setFinalGameBet(gameId, winningTeamInArray) {
-    winningTeamId = finalists[winningTeamInArray];
-    setKnockOutGameBet(gameId, winningTeamId, winningTeamInArray, "winner_final");
+    winner = finalists[winningTeamInArray];
+    setKnockOutGameBet(gameId, winner, winningTeamInArray, "winner_final");
+}
+
+function removeSemiFinalBetSelections() {
+    $("[id^=game_29_].selected").removeClass("selected");
+    $("[id^=game_30_].selected").removeClass("selected");
+    $("[id^=game_31_]").text("?");
+}
+
+function removeFinalBetSelection() {
+    $("[id^=game_31_].selected").removeClass("selected");
+    $("#winner_final").text("?");
 }
 
 function markKnockOutGameBet(gameId, winningTeamId, nextGameElement) {
@@ -127,9 +154,16 @@ var request = $.getJSON('/gamebets', function(data) {
            $("#game_" + gameBet.gameId + "_1").click();
         }
     }
-    toggleFinalGameBetting()
   });
 
+  // Remove all onClick attributes on knock out game bets if knock out phase has started
+  if (!postKnockOutGameBet) {
+    $("[id^=game_2]").removeAttr("onClick");
+    $("[id^=game_3]").removeAttr("onClick");
+  }
+
+  // Perhaps disable knock out game batting if user hasn't betted on all games
+  toggleFinalGameBetting();
   // Mark bets as right or wrong and sum the points
   getResults();
 });
@@ -155,11 +189,22 @@ var request = $.getJSON('/results', function(data) {
         }
     } else if (gameBet.gameId < 29) {
         // TODO: Mark knock out bets as right or wrong
-        var selectedTeam = $("#game_" + gameBet.gameId + "_" + gameBet.result);
-        if (selectedTeam.hasClass("selected")) {
-            selectedTeam.closest("td").addClass("right");
+        if (gameBet.result == semiFinalists[gameBet.gameId-25]) {
+            $("[id^=game_" + gameBet.gameId + "_].selected").addClass("right");
         } else {
-            selectedTeam.closest("td").addClass("wrong");
+            $("[id^=game_" + gameBet.gameId + "_].selected").addClass("wrong");
+        }
+    } else if (gameBet.gameId < 31) {
+        if (gameBet.result == finalists[gameBet.gameId-29]) {
+            $("[id^=game_" + gameBet.gameId + "_].selected").addClass("right");
+        } else {
+            $("[id^=game_" + gameBet.gameId + "_].selected").addClass("wrong");
+        }
+    } else if (gameBet.gameId == 31) {
+        if (gameBet.result == winner) {
+            $("[id^=game_31_].selected").addClass("right");
+        } else {
+            $("[id^=game_31_].selected").addClass("wrong");
         }
     }
   });

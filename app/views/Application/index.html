@@ -387,7 +387,7 @@
 </div>
 
 <div id="knockout">
- <div id="knockout_instructions">Snart kommer du kunna tippa slutspelet här. Klicka på de lag du tror kommer vinna respektive match. Börja med kvartsfinalerna och avsluta med finalen.</div>
+ <div id="knockout_instructions">Klicka på de lag du tror kommer vinna respektive match. Börja med kvartsfinalerna och avsluta med finalen.</div>
  <div id="finals">
    <div id="quarterfinals">
     <table border="0">
@@ -409,14 +409,14 @@
             </tr>
             <tr class="quarterfinal"><th class="num">3</th>
                 <td><table>
-                    <tr><td><span class="group_letter grp_C">C1</span><a class="game_27" id="game_27_5" onclick="setQuarterFinalGameBet(27, '5', 'game_29_2');">1:a grupp C</a></td></tr>
+                    <tr><td><span class="group_letter grp_C">C1</span><a class="game_27" id="game_27_5" onclick="setQuarterFinalGameBet(27, '5', 'game_29_2');">Spanien</a></td></tr>
                     <tr><td><span class="group_letter grp_D">D2</span><a class="game_27" id="game_27_6" onclick="setQuarterFinalGameBet(27, '6', 'game_29_2');">2:a grupp D</a></td></tr>
                 </table></td>
             </tr>    
             <tr class="quarterfinal"><th class="num">4</th>
                 <td><table>
                     <tr><td><span class="group_letter grp_D">D1</span><a class="game_28" id="game_28_7" onclick="setQuarterFinalGameBet(28, '7', 'game_30_3');">1:a grupp D</a></td></tr>
-                    <tr><td><span class="group_letter grp_C">C2</span><a class="game_28" id="game_28_8" onclick="setQuarterFinalGameBet(28, '8', 'game_30_3');">2:a grupp C</a></td></tr>
+                    <tr><td><span class="group_letter grp_C">C2</span><a class="game_28" id="game_28_8" onclick="setQuarterFinalGameBet(28, '8', 'game_30_3');">Italien</a></td></tr>
                 </table></td>
             </tr>
         </tbody>
@@ -512,30 +512,36 @@
 </div>
 
 <script type="text/javascript">
+    %{ if (hasKnockOutPhaseStarted && emUser.id > 0) { }%
+            // Disable the possibility to bet on the knock out games
+            disableKnockOutBetting();
+    %{ } }%
+
     // Populate the radio buttons above
     getGameBets();
 
     // hasTournamentStarted: ${hasTournamentStarted}
 
-    %{ if (hasTournamentStarted && emUser.id > 0) {
-  }%
-    // Disable the possibility to bet
-    disableBetting();
-    // Get the statistics for the group betting
-    getGroupGameBets();
-    // Get the scores and put them on the page
-    getScores();
-  %{
-     } else {
-  }%
-    $("#bettingtimer").countdown({until: +${secondsUntilTournamentStart}, layout:'{d<}{dn} {dl}, {d>}{h<}{hn} {hl}, {h>}{m<}{mn} {ml} och {m>}{sn} {sl}'});
-  %{
-     }
-  }%
+    %{ if (hasTournamentStarted && emUser.id > 0) { }%
+            // Disable the possibility to bet
+            disableBetting();
+            // Get the statistics for the group betting
+            getGroupGameBets();
+            // Get the scores and put them on the page
+            getScores();
+    %{ } else { }%
+            $("#bettingtimer").countdown({until: +${secondsUntilTournamentStart}, layout:'{d<}{dn} {dl}, {d>}{h<}{hn} {hl}, {h>}{m<}{mn} {ml} och {m>}{sn} {sl}'});
+    %{ } }%
 
     //Create tabs for navigation
-   $('#menu').tabify();
-   //Disable unwanted tabs
-   $('a.disabled').click(function() { return false; });
+    $('#menu').tabify();
+
+    %{ if (haveGroupGamesEnded) { }%
+            // Enable all disabled tabs
+            $('a.disabled').removeClass('disabled');
+    %{ } else { }%
+            //Disable unwanted tabs
+            $('a.disabled').click(function() { return false; });
+    %{ } }%
 
 </script>
