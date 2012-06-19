@@ -16,7 +16,7 @@
 </div>
 
 <div id="countdown">
-    <span class="label">Tid kvar att tippa: </span><span id="bettingtimer"></span>
+    <span class="label">Tid kvar att tippa slutspelet: </span><span id="bettingtimer"></span>
 </div>
 
 <div id="standings">
@@ -30,8 +30,8 @@
 
 <div id="tabs">
     <ul id="menu">
-        <li class="active"><a href="#groups">Gruppspel</a></li>
-        <li><a class="disabled" href="#knockout">Slutspel</a></li>
+        <li><a href="#groups">Gruppspel</a></li>
+        <li class="active"><a class="disabled" href="#knockout">Slutspel</a></li>
         <li><a class="disabled" href="#toplist">Topplista</a></li>
     </ul>
 
@@ -515,7 +515,11 @@
     %{ if (hasKnockOutPhaseStarted && emUser.id > 0) { }%
             // Disable the possibility to bet on the knock out games
             disableKnockOutBetting();
+    %{ } else { }%
+            $("#bettingtimer").countdown({until: +${secondsUntilKnockOutPhaseStart}, layout:'{d<}{dn} {dl}, {d>}{h<}{hn} {hl}, {h>}{m<}{mn} {ml} och {m>}{sn} {sl}'});
+            $("#countdown").show();
     %{ } }%
+
 
     // Populate the radio buttons above
     getGameBets();

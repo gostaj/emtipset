@@ -34,6 +34,7 @@ public class Application extends Controller {
             int usersInGroup = User.getUserCountInUserGroup(emUser.group);
 
             long secondsUntilTournamentStart = getSecondsUntilTournamentStart();
+            long secondsUntilKnockOutPhaseStart = getSecondsUntilKnockOutPhaseStart();
 
             List<User> topList = getTopList(emUser.group);
             List<User> refTopList = getRefTopList();
@@ -41,7 +42,8 @@ public class Application extends Controller {
             int maxPoints = User.getResultUser().points;
 
             render(user, emUser, hasTournamentStarted, userPlaceInGroup, usersInGroup, secondsUntilTournamentStart,
-                    topList, refTopList, maxPoints, haveGroupGamesEnded, hasKnockOutPhaseStarted);
+                    topList, refTopList, maxPoints, haveGroupGamesEnded, hasKnockOutPhaseStarted,
+                    secondsUntilKnockOutPhaseStart);
         }
     }
 
@@ -109,6 +111,13 @@ public class Application extends Controller {
         return (tournamentStart.getTimeInMillis() -
                 Calendar.getInstance().getTimeInMillis())/1000;
     }
+
+    private static long getSecondsUntilKnockOutPhaseStart() {
+        Calendar knockOutStart = getKnockOutPhaseStartCal();
+        return (knockOutStart.getTimeInMillis() -
+                Calendar.getInstance().getTimeInMillis())/1000;
+    }
+
 
 
 }
