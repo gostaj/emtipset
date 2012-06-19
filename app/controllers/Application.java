@@ -27,6 +27,8 @@ public class Application extends Controller {
             emUser.updateUserFromSocialUser(user);
 
             boolean hasTournamentStarted = hasTournamentStarted();
+            boolean haveGroupGamesEnded = haveGroupGamesEnded();
+            boolean hasKnockOutPhaseStarted = hasKnockOutPhaseStarted();
 
             int userPlaceInGroup = User.getUserPlaceInGroup(emUser);
             int usersInGroup = User.getUserCountInUserGroup(emUser.group);
@@ -39,7 +41,7 @@ public class Application extends Controller {
             int maxPoints = User.getResultUser().points;
 
             render(user, emUser, hasTournamentStarted, userPlaceInGroup, usersInGroup, secondsUntilTournamentStart,
-                    topList, refTopList, maxPoints);
+                    topList, refTopList, maxPoints, haveGroupGamesEnded, hasKnockOutPhaseStarted);
         }
     }
 
@@ -49,7 +51,7 @@ public class Application extends Controller {
 
     private static List<User> getTopList(String group) {
         if (haveGroupGamesEnded() || Play.mode.isDev()) {
-            return User.getUserGroupPointSorted(group);
+            return User.getUserGroupWeightedPointsSorted(group);
         } else {
             return new ArrayList<User>();
         }
