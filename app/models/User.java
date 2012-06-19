@@ -82,7 +82,7 @@ public class User extends GenericModel {
         return (id.equals(RESULT_USER_ID));
     }
 
-    public static List<User> getUserGroupPointSorted(String group) {
+    public static List<User> getUserGroupWeightedPointsSorted(String group) {
         return find("select u from User u where u.group = ? order by weightedPoints desc, id asc", group).fetch();
     }
 

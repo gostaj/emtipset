@@ -115,7 +115,7 @@ public class Admin extends Controller {
     }
 
     private static void updateWeightedPointsForUser(User user) {
-        user.weightedPoints = user.points * 1000;
+        user.weightedPoints = user.points * 2000;
         List<GameBet> correctGameBets = GameBet.getCorrectGameBetsForUser(user);
         for (GameBet gameBet : correctGameBets) {
             user.weightedPoints += gameBet.gameId * gameBet.gameId;
