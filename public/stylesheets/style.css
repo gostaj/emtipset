@@ -622,6 +622,16 @@ div#finals a.disabled {
     pointer-events: none;
     cursor: default;
 }
+
+div#finals a.closed {
+    pointer-events: none;
+    cursor: default;
+}
+
+div#finals a.closed:hover {
+    border: 0;
+}
+
     
 
 tr.winner {
