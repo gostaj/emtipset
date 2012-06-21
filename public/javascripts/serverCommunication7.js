@@ -165,10 +165,9 @@ var request = $.getJSON('/gamebets', function(data) {
     }
   });
 
-  // Remove all onClick attributes on knock out game bets if knock out phase has started
+  // Remove all onClick attributes and add class "closed' to knock out game bets if knock out phase has started
   if (!postKnockOutGameBet) {
-    $("[id^=game_2]").removeAttr("onClick");
-    $("[id^=game_3]").removeAttr("onClick");
+    $("#finals a").removeAttr("onClick").addClass("closed");
   }
 
   // Perhaps disable knock out game batting if user hasn't betted on all games
