@@ -41,6 +41,15 @@ request.fail(function(jqXHR, textStatus) {
 
 function disableKnockOutBetting() {
     postKnockOutGameBet = false;
+
+  // Do not show the game bet counter or the countdown
+  $("#to_bet").hide();
+  $("#countdown").hide();
+
+  // Show the points counter and the place number status
+  $("#standings").show();
+  $("#points").show();
+  $("#place").show();
 }
 
 
@@ -221,12 +230,12 @@ function disableBetting() {
 
   // Do not show the game bet counter or the countdown
   $("#to_bet").hide();
-  $("#countdown").hide();
+  //$("#countdown").hide();
 
   // Show the points counter and the place number status
-  $("#standings").show();
-  $("#points").show();
-  $("#place").show();
+  //$("#standings").show();
+  //$("#points").show();
+  //$("#place").show();
 
   // Disable the betting radio buttons
   $(':radio').attr('disabled',true);
